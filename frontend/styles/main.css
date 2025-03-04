@@ -1,6 +1,6 @@
 .mainmenu {
     background-color: black;
-    font-size: large;
+    font-size: 20px;
     color: white;
     padding: 10px;
     display: flex;
@@ -14,6 +14,48 @@
     position: absolute;
     left: 10px;
     bottom: 30px;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    background-color: black;
+    border-radius: 10px;
+    padding: 5px;
+    border: 2px solid #ccc;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+
+    margin-top: 10px;
+}
+
+.search-input {
+    background: none;
+    border: none;
+    outline: none;
+    padding: 8px 12px;
+    font-size: 16px;
+    color: white;
+    width: 180px;
+}
+
+.search-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: white;
+    padding: 5px 10px;
+}
+
+.search-icon {
+    width: 20px;
+    height: 20px;
+    margin-bottom: -4px;
+}
+
+.search-container:focus-within {
+    border-color: #4CAF50;
+    box-shadow: 0 0 8px #4CAF50;
 }
 
 .sign-in, .sign-up {
