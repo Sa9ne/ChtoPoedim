@@ -1,0 +1,44 @@
+.mainmenu {
+    background-color: black;
+    font-size: large;
+    color: white;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    height: 110px; 
+}
+
+.slogan{
+    position: absolute;
+    left: 10px;
+    bottom: 30px;
+}
+
+.sign-in, .sign-up {
+    position: absolute;
+    right: 10px;
+    background-color: black; 
+    color: white; 
+    border: 2px solid white; 
+    padding: 5px 16px; 
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100px; 
+    text-align: center;
+}
+
+.sign-in {
+    bottom: 60px;
+}
+
+.sign-up {
+    bottom: 10px;
+}
+
+.sign-in:hover, .sign-up:hover {
+    background-color: white;
+    color: black;
+}

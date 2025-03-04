@@ -1,0 +1,36 @@
+/* Убираем отступы и паддинги у всех элементов */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Обнуляем стандартные стили списка */
+  ul, ol {
+    list-style: none;
+  }
+  
+  /* Убираем подчеркивание у ссылок */
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  /* Убираем стандартные стили у кнопок и полей ввода */
+  button, input {
+    border: none;
+    background: none;
+    font: inherit;
+  }
+  
+  /* Убираем выделение при клике в некоторых браузерах */
+  button:focus, input:focus {
+    outline: none;
+  }
+  
+  /* Настраиваем блочную модель */
+  html {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
