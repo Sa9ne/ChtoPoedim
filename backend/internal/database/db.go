@@ -1,16 +1,23 @@
 package database
 
 import (
-	"context"
 	"fmt"
 	"log"
 	"os"
 
-	"github.com/jackc/pgx/v5"
 	"github.com/joho/godotenv"
+	"gorm.io/driver/postgres"
+	"gorm.io/gorm"
 )
 
-var DB *pgx.Conn
+var DB *gorm.DB
+
+type Dishes struct {
+	ID          uint   `gorm:"PrimaryKey"`
+	Name        string `json:"name"`
+	Discription string `json:"discription"`
+	Time        int    `jsom:"time"`
+}
 
 func ConnectDB() {
 	err := godotenv.Load()
@@ -23,9 +30,11 @@ func ConnectDB() {
 		log.Fatal("Database_url not found")
 	}
 
-	DB, err = pgx.Connect(context.Background(), dsn)
+	DB, err = gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
 		log.Fatalf("Failed connect database: %v", err)
 	}
 	fmt.Println("Successful database connect")
+
+	DB.AutoMigrate(&Dishes{})
 }
