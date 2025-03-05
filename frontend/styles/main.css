@@ -13,7 +13,8 @@
 .slogan {
     position: absolute;
     left: 10px;
-    bottom: 5px;
+    bottom: 11px;
+    font-size: 37px;
 }
 
 .search-auth-container {
@@ -25,7 +26,6 @@
     right: 10px;
 }
 
-/* Поиск */
 .search-container {
     display: flex;
     align-items: center;
@@ -87,4 +87,49 @@
 .sign-in:hover, .sign-up:hover {
     background-color: white;
     color: black;
+}
+
+
+/* === АДАПТИВНОСТЬ ТОЛЬКО ДЛЯ МОБИЛЬНЫХ === */
+@media (max-width: 768px) {
+    .mainmenu {
+        height: auto;
+        padding: 15px;
+    }
+
+    .slogan {
+        position: static; /* Убираем абсолютное позиционирование */
+        text-align: center;
+        font-size: 18px;
+    }
+
+    /* Перестраиваем элементы в столбец */
+    .search-auth-container {
+        flex-direction: column;
+        align-items: center;
+        position: static;
+        gap: 10px;
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .search-container {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .search-input {
+        width: 100%;
+    }
+
+    .auth-buttons {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .sign-in, .sign-up {
+        width: 100%;
+        max-width: 280px;
+    }
 }
