@@ -11,6 +11,11 @@ func SearchRecipes(ctx *gin.Context) {
 	// Получаем параметр из поиска (?search=pizza)
 	query := ctx.Query("search")
 
+	if query == "" {
+		ctx.JSON(http.StatusBadRequest, gin.H{"message":"Пустое поле ввода"})
+		return
+	}
+
 	var dishes []database.Dishes
 	database.DB.Where("name ILIKE ?", "%"+query+"%").Find(&dishes)
 
