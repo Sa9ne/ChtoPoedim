@@ -19,8 +19,9 @@ func Start() {
 	// Работа статической иконки favicon
 	s.StaticFile("favicon.ico", "D:/important/Let's Eat/frontend/icons/favicon.ico")
 
-	// Маршрутизатоор главной страницы
+	// Маршрутизаторы
 	s.GET("/", handlers.WelcomeReq)
+	s.GET("/search", handlers.SearchRecipes)
 
 	err := s.Run(":8080")
 	if err != nil {

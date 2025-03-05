@@ -89,7 +89,6 @@
     color: black;
 }
 
-
 /* === АДАПТИВНОСТЬ ТОЛЬКО ДЛЯ МОБИЛЬНЫХ === */
 @media (max-width: 768px) {
     .mainmenu {

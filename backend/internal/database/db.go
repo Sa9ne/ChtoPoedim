@@ -15,8 +15,8 @@ var DB *gorm.DB
 type Dishes struct {
 	ID          uint   `gorm:"PrimaryKey"`
 	Name        string `json:"name"`
-	Discription string `json:"discription"`
-	Time        int    `jsom:"time"`
+	Description string `json:"description"`
+	Time        int    `json:"time"`
 }
 
 func ConnectDB() {
