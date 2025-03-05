@@ -1,6 +1,7 @@
 package server
 
 import (
+	"LetsEat/backend/internal/database"
 	"LetsEat/backend/internal/handlers"
 	"log"
 
@@ -10,6 +11,8 @@ import (
 func Start() {
 	log.Printf("Starting Server...")
 	s := gin.Default()
+
+	database.ConnectDB()
 
 	// Работа статической директории frontend
 	s.Static("/frontend", "D:/important/Let's Eat/frontend")
