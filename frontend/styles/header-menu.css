@@ -101,9 +101,9 @@
     }
 
     .slogan {
-        position: static; /* Убираем абсолютное позиционирование */
+        position: static;
         text-align: center;
-        font-size: 18px;
+        font-size: 44px;
     }
 
     /* Перестраиваем элементы в столбец */
@@ -119,10 +119,27 @@
     .search-container {
         width: 100%;
         max-width: 400px;
+        position: relative;
     }
 
     .search-input {
         width: 100%;
+    }
+
+    .search-button {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .search-button:hover {
+       background-color: #45a049;
     }
 
     .auth-buttons {
@@ -133,6 +150,6 @@
 
     .sign-in, .sign-up {
         width: 100%;
-        max-width: 280px;
+        max-width: 355px;
     }
 }
