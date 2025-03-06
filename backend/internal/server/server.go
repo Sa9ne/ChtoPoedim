@@ -16,8 +16,6 @@ func Start() {
 
 	// Работа статической директории frontend
 	s.Static("/frontend", "D:/important/Let's Eat/frontend")
-	// Работа статической иконки favicon
-	s.StaticFile("favicon.ico", "D:/important/Let's Eat/frontend/icons/favicon.ico")
 
 	// Маршрутизаторы
 	s.GET("/", handlers.WelcomeReq)

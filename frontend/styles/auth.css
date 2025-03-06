@@ -1,0 +1,88 @@
+.background {
+    background-color: #17181a;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-container {
+    background-color: #0c0c0d;
+    color: white;
+    border-radius: 15px;
+    padding: 40px;
+    width: 500px;
+    margin: 100px auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 0px;
+    right: 20px;
+    font-size: 40px;
+    color: white;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: red;
+}
+
+#auth-title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #222324;
+    color: white;
+}
+
+input:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+#auth-button {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 18px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#auth-button:hover {
+    background-color: #45a049;
+}
+
+#toggle-text {
+    text-align: center;
+    margin-top: 10px;
+}
+
+#toggle-text a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+#toggle-text a:hover {
+    text-decoration: underline;
+}
