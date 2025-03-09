@@ -1,8 +1,0 @@
-.main-cont {
-    background-color: #17181a;
-    color: white;
-    height: 100vh; /* Занимает 100% высоты окна браузера */
-    display: flex;  /* Для использования flexbox */
-    justify-content: center; /* Центрируем содержимое по горизонтали */
-    align-items: center; /* Центрируем содержимое по вертикали */
-}

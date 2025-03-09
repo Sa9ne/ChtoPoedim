@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scrollbar-width:none;
   }
   
   /* Обнуляем стандартные стили списка */
@@ -33,4 +34,3 @@
     font-size: 16px;
     line-height: 1.5;
   }
-  
