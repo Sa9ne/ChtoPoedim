@@ -1,0 +1,109 @@
+.auth-container.hidden, .register-container.hidden {
+    display: none;
+}
+
+.auth-container.show, .register-container.show {
+    display: block;
+}
+
+.auth-container {
+    position: absolute;
+    top: 70px;
+    right: 0px;
+    background-color: #0c0c0d;
+    color: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 395px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+}
+
+.auth-container input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #222324;
+    color: white;
+    font-size: 14px;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.auth-container input:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px #4CAF50;
+    outline: none;
+}
+
+#auth-button {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.close-btn {
+    position: absolute;
+    top: -5px;
+    right: 15px;
+    font-size: 44px;
+    color: white;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: red;
+}
+
+.register-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #0c0c0d;
+    color: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 200;
+}
+
+.register-container input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #0c0c0d;
+    color: white;
+    font-size: 14px;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.register-container input:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px #4CAF50;
+    outline: none;
+}
+
+#register-button {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 15px;
+}

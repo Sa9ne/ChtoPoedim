@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="/frontend/styles/main-page/header-menu.css">
     <link rel="stylesheet" href="/frontend/styles/main-page/main-content.css">
     <link rel="stylesheet" href="/frontend/styles/main-page/footer.css">
+    <link rel="stylesheet" href="/frontend/styles/main-page/modal-page/log-in.css">
+    <link rel="stylesheet" href="/frontend/styles/main-page/modal-page/register.css">
     <link rel="icon" href="/frontend/icons/favicon.ico" type="image/x-icon">
 </head>
 <body>
@@ -32,6 +34,7 @@
                 </button>
             </div>
 
+            <!-- Модальное окно для входа -->
             <div class="auth-container hidden" id="auth-form">
                 <button class="close-btn" onclick="toggleAuthForm()">
                     &times;
@@ -42,16 +45,31 @@
                     <input type="password" placeholder="Password" required>
                 <button id="auth-button">Log In</button>
                 </form>
-                <p id="toggle-text">
-                    No account? <a href="auth.html?type=register">Registration</a>
-                </p>
+                <div class="separator">
+                    <p id="toggle-text">
+                        No account? <a href="#" onclick="toggleToRegisterForm()">Register</a>
+                    </p>
+                </div>
             </div>
-            <!-- <div class="auth-buttons">
-                <a href="/frontend/pages/auth.html?mode=login" class="sign-in">Sign In</a>
-                <a href="/frontend/pages/auth.html?mode=register" class="sign-up">Sign Up</a>
-            </div> -->
+
+            <!-- Модальное окно для регистрации -->
+            <div class="register-container hidden" id="register-form">
+                <button class="close-btn" onclick="toggleRegisterForm()">&times;</button>
+                <h2 id="register-title">Register</h2>
+                <form>
+                    <input type="text" placeholder="Username" required>
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Password" required>
+                    <button id="register-button">Register</button>
+                </form>
+                <div class="separator">
+                    <p id="toggle-text">
+                        <a href="#" onclick="toggleToLoginForm()">Back to sign in</a>
+                    </p>
+                </div>
+            </div>
+
         </div>
-        
     </header>
     
     <main class="main-cont" id="search-results">

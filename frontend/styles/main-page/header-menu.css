@@ -76,7 +76,7 @@
 }
 
 .avatar button {
-    background-color: transparent; 
+    background-color: transparent;
     border: none;
     padding: 0;
     cursor: pointer;
@@ -86,7 +86,7 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    object-fit: cover; 
+    object-fit: cover;
     transition: transform 0.3s ease;
     filter: drop-shadow(0 0 2px white);
 }
@@ -98,122 +98,4 @@
 
 .avatar:hover .User-icon {
     border: 2px solid #fff;
-}
-
-
-.auth-container {
-    position: absolute;
-    top: 75px;
-    right: 0;
-    background-color: #0c0c0d;
-    color: white;
-    border-radius: 10px;
-    padding: 15px;
-    width: 404px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    z-index: 100;
-}
-
-.hidden {
-    display: none;
-}
-
-.close-btn {
-    position: absolute;
-    top: -5px;
-    right: 15px;
-    font-size: 40px;
-    color: white;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    transition: color 0.3s ease-in-out;
-}
-
-.close-btn:hover {
-    color: red;
-}
-
-.auth-container input {
-    width: 100%;
-    padding: 5px;
-    margin-top: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #0c0c0d;
-    color: white;
-    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-.auth-container input:focus {
-    border-color: #4CAF50;
-    box-shadow: 0 0 5px #4CAF50;
-    outline: none;
-}
-
-#auth-button {
-    background-color: #4CAF50;
-    color: white;
-    font-size: 16px;
-    padding: 8px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-    margin-top: 10px;
-    transition: background-color 0.3s ease-in-out;
-}
-
-#auth-button:hover {
-    background-color: #45a049;
-}
-
-/* === АДАПТИВНОСТЬ ТОЛЬКО ДЛЯ МОБИЛЬНЫХ === */
-@media (max-width: 768px) {
-    .mainmenu {
-        height: auto;
-        padding: 15px;
-    }
-
-    .slogan {
-        position: static;
-        text-align: center;
-        font-size: 44px;
-    }
-
-    /* Перестраиваем элементы в столбец */
-    .search-auth-container {
-        flex-direction: column;
-        align-items: center;
-        position: static;
-        gap: 10px;
-        margin-top: 10px;
-        width: 100%;
-    }
-
-    .search-container {
-        width: 100%;
-        max-width: 400px;
-        position: relative;
-    }
-
-    .search-input {
-        width: 100%;
-    }
-
-    .search-button {
-        position: absolute;
-        right: 10px;
-        top: 50%;
-        transform: translateY(-50%);
-        color: white;
-        border: none;
-        padding: 10px;
-        cursor: pointer;
-        border-radius: 5px;
-    }
-
-    .search-button:hover {
-       background-color: #45a049;
-    }
 }
