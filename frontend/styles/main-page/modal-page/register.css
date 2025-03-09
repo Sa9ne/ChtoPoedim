@@ -48,9 +48,9 @@
 
 .close-btn {
     position: absolute;
-    top: 10px;
+    top: -5px;
     right: 15px;
-    font-size: 24px;
+    font-size: 44px;
     color: white;
     background-color: transparent;
     border: none;
