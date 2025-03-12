@@ -5,7 +5,7 @@
     "email_placeholder": "Электронная почта",
     "password_placeholder": "Пароль",
     "login_button": "Войти",
-    "no_account": "Нет аккаунта?",
+    "no_account": "Нет аккаунта? <a href='#' onclick='toggleToRegisterForm()'>Зарегистрироваться</a>",
     "register_link": "Регистрация",
     "register_title": "Регистрация",
     "username_placeholder": "Имя пользователя",
