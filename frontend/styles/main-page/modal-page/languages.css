@@ -1,0 +1,60 @@
+#lang-modal {
+    position: absolute;
+    top: 70px;
+    right: 55px;
+    background-color: #0c0c0d;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 200;
+    display: none;
+    width: 70px;
+    border: 2px solid white;
+}
+
+.lang-button {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    padding: 8px 16px;
+    font-size: 21px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.lang-button:hover {
+    background-color: white;
+    color: black;
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.modal-content button {
+    background: none;
+    border: none;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
+    width: 100%;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, border-radius 0.3s ease-in-out;
+    white-space: nowrap;
+}
+
+.modal-content button:hover {
+    background: #4CAF50;
+    color: white;
+    border-radius: 5px;
+}
+
+.hidden {
+    display: none;
+}

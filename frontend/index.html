@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/frontend/styles/main-page/footer.css">
     <link rel="stylesheet" href="/frontend/styles/main-page/modal-page/log-in.css">
     <link rel="stylesheet" href="/frontend/styles/main-page/modal-page/register.css">
+    <link rel="stylesheet" href="/frontend/styles/main-page/modal-page/languages.css">
     <link rel="icon" href="/frontend/icons/favicon.ico" type="image/x-icon">
 </head>
 <body>
@@ -18,11 +19,10 @@
     <header class="mainmenu">
         <h1 class="slogan">Let's eat together</h1>
 
-        <div class="language-switcher">
-            <button onclick="changeLanguage('en')">English</button>
-            <button onclick="changeLanguage('ru')">Русский</button>
-        </div>
-    
+        
+
+
+
         <div class="search-auth-container">
             <div class="search-container">
                 <form action="/search" method="GET">
@@ -33,10 +33,20 @@
                 </form>
             </div>
 
+            <button class="lang-button" onclick="toggleLangModal()" id="selected-lang"></button>
+
             <div class="avatar" onclick="toggleAuthForm()">
                 <button>
                     <img src="/frontend/icons/user.png" alt="Ava" class="User-icon">
                 </button>
+            </div>
+
+            <!-- Модальное окно языков -->
+            <div id="lang-modal" class="hidden">
+                <div class="modal-content">
+                    <button onclick="changeLanguage('en')">Eng</button>
+                    <button onclick="changeLanguage('ru')">Рус</button>
+                </div>
             </div>
 
             <!-- Модальное окно для входа -->
