@@ -12,7 +12,7 @@ func LoadTranslations() error {
 	languages := []string{"en", "ru"}
 
 	for _, lang := range languages {
-		filePath := fmt.Sprintf("D:/important/Let's Eat/backend/internal/localization/%s.json", lang)
+		filePath := fmt.Sprintf("D:/important/Let's Eat/backend/main-service/internal/localization/%s.json", lang)
 
 		file, err := os.Open(filePath)
 		if err != nil {
