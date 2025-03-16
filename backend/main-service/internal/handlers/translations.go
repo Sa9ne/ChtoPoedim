@@ -1,7 +1,7 @@
 package handlers
 
 import (
-	"LetsEat/backend/internal/localization"
+	"LetsEat/backend/main-service/internal/localization"
 	"fmt"
 	"net/http"
 

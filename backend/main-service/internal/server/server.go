@@ -1,10 +1,10 @@
 package server
 
 import (
-	"LetsEat/backend/internal/database"
-	"LetsEat/backend/internal/handlers"
-	"LetsEat/backend/internal/localization"
-	"LetsEat/backend/internal/middlewares"
+	"LetsEat/backend/main-service/internal/database"
+	"LetsEat/backend/main-service/internal/handlers"
+	"LetsEat/backend/main-service/internal/localization"
+	"LetsEat/backend/main-service/internal/middlewares"
 	"log"
 
 	"github.com/gin-gonic/gin"
