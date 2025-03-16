@@ -16,6 +16,7 @@ func Start() {
 	s := gin.Default()
 
 	s.POST("/register", handlers.Register)
+	s.POST("/login", handlers.Login)
 
 	if err := s.Run(":8081"); err != nil {
 		log.Fatal("Auth server doesn't start...")
