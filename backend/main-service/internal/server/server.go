@@ -32,6 +32,11 @@ func Start() {
 	s.GET("/search", handlers.SearchRecipes)
 	s.GET("/get-translations", handlers.GetTranslations)
 
+	APIprotected := s.Group("/api")
+	APIprotected.Use(middlewares.AuthMiddleware())
+
+	APIprotected.GET("/profile", handlers.ProfileHandler)
+
 	err := s.Run(":8080")
 	if err != nil {
 		log.Fatal("Failed to create server")

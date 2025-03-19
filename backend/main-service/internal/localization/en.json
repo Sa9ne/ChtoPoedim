@@ -5,7 +5,7 @@
     "email_placeholder": "Email",
     "password_placeholder": "Password",
     "login_button": "Log In",
-    "no_account": "No account?",
+    "no_account": "No account? <a href='#' onclick='toggleToRegisterForm()'>Register</a>",
     "register_link": "Register",
     "register_title": "Register",
     "username_placeholder": "Username",
