@@ -76,3 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updateLanguageButton();
     document.getElementById("lang-modal").style.display = "none";
 });
+
+document.getElementById("selected-lang").addEventListener("click", function (event) {
+    toggleLangModal(); // При клике на кнопку открываем или закрываем модальное окно
+});
