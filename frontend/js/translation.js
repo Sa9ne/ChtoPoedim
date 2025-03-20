@@ -1,82 +1,83 @@
-// Функция для открытия/закрытия модального окна
-function toggleLangModal() {
-    const modal = document.getElementById("lang-modal");
+document.addEventListener("DOMContentLoaded", function () {
+    const langModal = document.getElementById("lang-modal");
+    const langButton = document.getElementById("selected-lang");
 
-    if (modal.style.display === "none" || modal.style.display === "") {
-        modal.style.display = "block";
-    } else {
-        modal.style.display = "none";
+    if (!langModal || !langButton) {
+        console.error("Ошибка: не найден элемент с id lang-modal или selected-lang.");
+        return;
     }
-}
 
-// Функция смены языка
-function changeLanguage(lang) {
-    fetch(`/get-translations?lang=${lang}`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`Ошибка сервера: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(translations => {
-            // Сохраняем язык в cookies
-            document.cookie = `lang=${lang}; path=/; max-age=3600`;
+    // Функция для открытия/закрытия модального окна
+    function toggleLangModal() {
+        langModal.style.display = (langModal.style.display === "block") ? "none" : "block";
+    }
 
-            // Обновляем текст на странице
-            document.querySelectorAll("[data-translate]").forEach(el => {
-                const key = el.getAttribute("data-translate");
-
-                if (translations[key]) {
-                    if (el.tagName === "INPUT") {
-                        el.placeholder = translations[key]; // Для input обновляем placeholder
-                    } else if (el.tagName === "A") {
-                        el.innerHTML = translations[key]; // Для ссылок сохраняем теги <a>
-                    } else {
-                        el.innerHTML = translations[key]; // Меняем текст без удаления вложенных тегов
-                    }
+    // Функция смены языка
+    function changeLanguage(lang) {
+        fetch(`/get-translations?lang=${lang}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Ошибка сервера: ${response.status}`);
                 }
-            });
+                return response.json();
+            })
+            .then(translations => {
+                // Сохранение языка в cookies
+                document.cookie = `lang=${lang}; path=/; max-age=3600`;
 
-            // Обновляем кнопку с выбранным языком
-            updateLanguageButton();
-        })
-        .catch(error => console.error("Ошибка при смене языка:", error));
-}
+                // Обновление текста на странице
+                document.querySelectorAll("[data-translate]").forEach(el => {
+                    const key = el.getAttribute("data-translate");
 
-// Получение cookie по имени
-function getCookie(name) {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(';').shift();
-    return null;
-}
+                    if (translations[key]) {
+                        if (el.tagName === "INPUT") {
+                            el.placeholder = translations[key]; // Для input обновляем placeholder
+                        } else {
+                            el.innerHTML = translations[key]; // Меняем текст без удаления вложенных тегов
+                        }
+                    }
+                });
 
-// Обновление текста кнопки на текущий язык
-function updateLanguageButton() {
-    const lang = getCookie("lang") || "en";
-    const button = document.getElementById("selected-lang");
+                // Обновляем текст кнопки выбора языка
+                updateLanguageButton();
 
-    if (button) {
-        button.textContent = lang === "ru" ? "Рус" : "Eng";
+                // Закрываем модальное окно после смены языка
+                langModal.style.display = "none";
+            })
+            .catch(error => console.error("Ошибка при смене языка:", error));
     }
-}
 
-// Закрытие модального окна при клике вне его
-document.addEventListener("click", function (event) {
-    const modal = document.getElementById("lang-modal");
-    const button = document.getElementById("selected-lang");
-
-    if (modal.style.display === "block" && event.target !== modal && event.target !== button && !modal.contains(event.target)) {
-        modal.style.display = "none";
+    // Получение cookie по имени
+    function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+        return null;
     }
-});
 
-// Устанавливаем правильный язык в кнопке при загрузке страницы
-document.addEventListener("DOMContentLoaded", () => {
+    // Обновление текста кнопки выбора языка
+    function updateLanguageButton() {
+        const lang = getCookie("lang") || "en";
+        langButton.textContent = lang === "ru" ? "Рус" : "Eng";
+    }
+
+    // Закрытие модального окна при клике вне его
+    document.addEventListener("click", function (event) {
+        if (
+            langModal.style.display === "block" &&
+            event.target !== langModal &&
+            event.target !== langButton &&
+            !langModal.contains(event.target)
+        ) {
+            langModal.style.display = "none";
+        }
+    });
+
+    // Инициализация текста кнопки при загрузке
     updateLanguageButton();
-    document.getElementById("lang-modal").style.display = "none";
-});
+    langModal.style.display = "none";
 
-document.getElementById("selected-lang").addEventListener("click", function (event) {
-    toggleLangModal(); // При клике на кнопку открываем или закрываем модальное окно
+    // Добавляем функции в глобальную область видимости, чтобы они работали с HTML
+    window.toggleLangModal = toggleLangModal;
+    window.changeLanguage = changeLanguage;
 });

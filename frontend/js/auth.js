@@ -1,34 +1,96 @@
+const API_AUTH = "http://localhost:8081";
+
+// Переместили функции в глобальную область
+function toggleAuthForm() {
+    const authForm = document.getElementById("auth-form");
+    const registerForm = document.getElementById("register-form");
+
+    if (authForm && registerForm) {
+        if (authForm.classList.contains("show") || registerForm.classList.contains("show")) {
+            authForm.classList.remove("show");
+            registerForm.classList.remove("show");
+        } else {
+            authForm.classList.add("show");
+        }
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    const openAuthBtn = document.querySelector(".avatar");
+
+    if (openAuthBtn) {
+        openAuthBtn.addEventListener("click", function (event) {
+            event.stopPropagation();
+            toggleAuthForm();
+        });
+    }
+});
+
+function toggleToRegisterForm() {
+    const authForm = document.getElementById("auth-form");
+    const registerForm = document.getElementById("register-form");
+
+    if (authForm) authForm.classList.remove("show");
+    if (registerForm) registerForm.classList.add("show");
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    const registerLink = document.getElementById("register-link");
+
+    if (registerLink) {
+        registerLink.addEventListener("click", function (event) {
+            event.preventDefault();
+            toggleToRegisterForm();
+        });
+    }
+});
+
+function toggleToLoginForm() {
+    const authForm = document.getElementById("auth-form");
+    const registerForm = document.getElementById("register-form");
+
+    if (registerForm) registerForm.classList.remove("show");
+    if (authForm) authForm.classList.add("show");
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    const backToLogin = document.getElementById("back-to-login");
+
+    if (backToLogin) {
+        backToLogin.addEventListener("click", function (event) {
+            event.preventDefault();
+            toggleToLoginForm();
+        });
+    }
+});
+
+// Функция для переключения между формами регистрации и входа
+function toggleRegisterForm() {
+    const authForm = document.getElementById("auth-form");
+    const registerForm = document.getElementById("register-form");
+
+    if (authForm) {
+        authForm.classList.remove("show");
+    }
+    if (registerForm) {
+        registerForm.classList.add("show");
+    }
+}
+
+
 document.addEventListener("DOMContentLoaded", function () {
     const authForm = document.getElementById("auth-form");
     const registerForm = document.getElementById("register-form");
-    const openAuthBtn = document.querySelector(".avatar"); // Открытие окна входа
-    const closeBtns = document.querySelectorAll(".close-btn"); // Все кнопки закрытия
+    const profileForm = document.getElementById("profile-form");
+    const openAuthBtn = document.querySelector(".avatar"); // Кнопка для входа
+    const closeBtns = document.querySelectorAll(".close-btn"); // Кнопки закрытия
+    const registerLink = document.getElementById("register-link");
+    const backToLogin = document.getElementById("back-to-login");
+    const registerButton = document.getElementById("register-button");
+    const authButton = document.getElementById("auth-button");
+    const quitButton = document.getElementById("quit-button");
 
-    // Функция для показа/скрытия формы входа
-    function toggleAuthForm() {
-        authForm.classList.toggle("show");
-        registerForm.classList.remove("show"); // Закрываем регистрацию, если открыта
-    }
-
-    // Функция для показа/скрытия формы регистрации
-    function toggleRegisterForm() {
-        registerForm.classList.toggle("show");
-        authForm.classList.remove("show"); // Закрываем вход, если открыт
-    }
-
-    // Переключение из входа в регистрацию
-    function toggleToRegisterForm() {
-        authForm.classList.remove("show");
-        registerForm.classList.add("show");
-    }
-
-    // Переключение из регистрации во вход
-    function toggleToLoginForm() {
-        registerForm.classList.remove("show");
-        authForm.classList.add("show");
-    }
-
-    // Открытие окна входа при клике на аватар
+    // Открытие формы входа по клику на аватар
     if (openAuthBtn) {
         openAuthBtn.addEventListener("click", function (event) {
             event.stopPropagation();
@@ -36,39 +98,141 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Закрытие всех окон при клике вне них
+    // Закрытие форм при клике вне их области
     document.addEventListener("click", function (event) {
-        if (!authForm.contains(event.target) && !registerForm.contains(event.target) && !openAuthBtn.contains(event.target)) {
+        if (
+            authForm && registerForm && openAuthBtn &&
+            !authForm.contains(event.target) &&
+            !registerForm.contains(event.target) &&
+            !openAuthBtn.contains(event.target)
+        ) {
             authForm.classList.remove("show");
             registerForm.classList.remove("show");
         }
     });
 
-    // Остановка закрытия при клике внутри окон
-    authForm.addEventListener("click", function (event) {
-        event.stopPropagation();
-    });
+    // Остановка всплытия события внутри форм
+    if (authForm) authForm.addEventListener("click", (event) => event.stopPropagation());
+    if (registerForm) registerForm.addEventListener("click", (event) => event.stopPropagation());
 
-    registerForm.addEventListener("click", function (event) {
-        event.stopPropagation();
-    });
-
-    // Закрытие окна при нажатии на кнопку "×"
+    // Закрытие форм по кнопкам
     closeBtns.forEach(btn => {
         btn.addEventListener("click", function () {
-            authForm.classList.remove("show");
-            registerForm.classList.remove("show");
+            if (authForm) authForm.classList.remove("show");
+            if (registerForm) registerForm.classList.remove("show");
         });
     });
 
-    // Переключение между окнами по ссылкам
-    document.querySelector("[data-translate='register_link']").addEventListener("click", function (event) {
-        event.preventDefault();
+    // Обработчики переключения форм
+    if (registerLink) registerLink.addEventListener("click", (e) => {
+        e.preventDefault();
         toggleToRegisterForm();
     });
 
-    document.querySelector("[data-translate='back_to_sign_in']").addEventListener("click", function (event) {
-        event.preventDefault();
+    if (backToLogin) backToLogin.addEventListener("click", (e) => {
+        e.preventDefault();
         toggleToLoginForm();
     });
+
+    // Функция регистрации пользователя
+    async function registerUser(event) {
+        event.preventDefault();
+
+        const username = document.querySelector("#register-form input[placeholder='Username']").value;
+        const email = document.querySelector("#register-form input[placeholder='Email']").value;
+        const password = document.querySelector("#register-form input[placeholder='Password']").value;
+
+        const response = await fetch(`${API_AUTH}/api/register`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username, email, password })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            localStorage.setItem("token", data.token);
+            showProfile(username);
+        } else {
+            alert("Ошибка регистрации: " + (data.error || "неизвестная ошибка"));
+        }
+    }
+
+    if (registerButton) {
+        registerButton.addEventListener("click", registerUser);
+    }
+
+    // Функция входа пользователя
+    async function loginUser(event) {
+        event.preventDefault();
+
+        const email = document.querySelector("#auth-form input[placeholder='Email']").value;
+        const password = document.querySelector("#auth-form input[placeholder='Password']").value;
+
+        const response = await fetch(`${API_AUTH}/api/login`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email, password })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            localStorage.setItem("token", data.token);
+            showProfile(data.username);
+        } else {
+            alert("Ошибка входа: " + (data.error || "неизвестная ошибка"));
+        }
+    }
+
+    if (authButton) {
+        authButton.addEventListener("click", loginUser);
+    }
+
+    // Проверка авторизации
+    async function checkAuth() {
+        const token = localStorage.getItem("token");
+        if (!token) return;
+
+        const response = await fetch(`${API_AUTH}/api/profile`, {
+            method: "GET",
+            headers: { "Authorization": `Bearer ${token}` }
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            showProfile(data.username);
+        } else {
+            localStorage.removeItem("token");
+        }
+    }
+
+    checkAuth();
+
+    // Функция отображения профиля
+    function showProfile(username) {
+        const authForm = document.getElementById("auth-form");
+        const registerForm = document.getElementById("register-form");
+        const profile = document.getElementById("profile-form");
+        const nickname = document.getElementById("nickname");
+
+        if (authForm) authForm.classList.add("hidden");
+        if (registerForm) registerForm.classList.add("hidden");
+        if (profile) profile.classList.remove("hidden");
+        if (nickname) nickname.textContent = username;
+    }
+
+    // Функция выхода из аккаунта
+    function quitAccount() {
+        localStorage.removeItem("token");
+        const profile = document.getElementById("profile-form");
+        const authForm = document.getElementById("auth-form");
+
+        if (profile) profile.classList.add("hidden");
+        if (authForm) authForm.classList.remove("hidden");
+    }
+
+    if (quitButton) {
+        quitButton.addEventListener("click", quitAccount);
+    }
 });
