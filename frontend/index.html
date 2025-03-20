@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/frontend/styles/main-page/modal-page/log-in.css">
     <link rel="stylesheet" href="/frontend/styles/main-page/modal-page/register.css">
     <link rel="stylesheet" href="/frontend/styles/main-page/modal-page/languages.css">
+    <link rel="stylesheet" href="/frontend/styles/main-page/modal-page/profile.css">
     <link rel="icon" href="/frontend/icons/favicon.ico" type="image/x-icon">
 </head>
 <body>
@@ -78,6 +79,21 @@
                         <a href="#" data-translate="back_to_sign_in" onclick="toggleToLoginForm()">Back to sign in</a>
                     </p>
                 </div>
+            </div>
+
+            <!-- Модальное окно для профиля -->
+            <div class="modal-container hidden" id="profile-form">
+                <button class="close-btn-profile" onclick="toggleProfileForm()">
+                    &times;
+                </button>
+                <h2 class="Nicknametext" id="profile-title" for="nickname">Nickname</h2>
+                <form>
+                    <div class="form-group">
+                        <button class="FavoriteFoodButton" for="favorite-food">Favorite Food</button>
+                        <hr class="HrForPlace">
+                        <a class="LeaveText" type="button" id="quit-button" onclick="quitAccount()">Quit</a>
+                    </div>
+                </form>
             </div>
 
         </div>
