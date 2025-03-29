@@ -4,9 +4,9 @@ import (
 	"LetsEat/backend/auth-service/internal/database"
 	"LetsEat/backend/auth-service/internal/handlers"
 	"LetsEat/backend/auth-service/internal/middleware"
+	"LetsEat/backend/auth-service/internal/models"
 	"log"
 
-	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
@@ -14,13 +14,13 @@ func Start() {
 	database.ConnectDB()
 
 	s := gin.Default()
-	s.Use(cors.Default())
+	s.Use(models.CORSConfig())
 
 	s.GET("/", handlers.WelcomeReq)
-	s.POST("/register", handlers.Register)
-	s.POST("/login", handlers.Login)
+	s.POST("api/register", handlers.Register)
+	s.POST("api/login", handlers.Login)
 
-	auth := s.Group("/")
+	auth := s.Group("/api")
 	auth.Use(middleware.AuthCheck())
 	auth.GET("/profile", handlers.Profile)
 
