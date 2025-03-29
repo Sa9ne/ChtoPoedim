@@ -17,10 +17,10 @@ func Start() {
 	s.Use(models.CORSConfig())
 
 	s.GET("/", handlers.WelcomeReq)
-	s.POST("api/register", handlers.Register)
-	s.POST("api/login", handlers.Login)
+	s.POST("/register", handlers.Register)
+	s.POST("/login", handlers.Login)
 
-	auth := s.Group("/api")
+	auth := s.Group("/")
 	auth.Use(middleware.AuthCheck())
 	auth.GET("/profile", handlers.Profile)
 
