@@ -22,7 +22,7 @@ func Start() {
 
 	auth := s.Group("/")
 	auth.Use(middleware.AuthCheck())
-	auth.GET("/login", handlers.Profile)
+	auth.GET("/profile", handlers.Profile)
 
 	err := s.Run(":8081")
 	if err != nil {
