@@ -1,26 +1,15 @@
-// Переменная для хранения API
-const API_AUTH = "http://localhost:8081";
-
-// Функция для переключения окна входа
+// Функция для открытия и закрытия окна входа
 function toggleAuthForm() {
     const authForm = document.getElementById("auth-form");
-    const registerForm = document.getElementById("register-form");
-
-    if (authForm && registerForm) {
-        if (authForm.classList.contains("show") || registerForm.classList.contains("show")) {
-            authForm.classList.remove("show");
-            registerForm.classList.remove("show");
-        } else {
-            authForm.classList.add("show");
-        }
-    }
+    authForm.classList.toggle("hidden");
 }
 
-// Функция для переключения окна регистрации
-function toggleRegisterForm() {
+// Функция для переключения на форму регистрации
+function toggleToRegisterForm() {
     const authForm = document.getElementById("auth-form");
     const registerForm = document.getElementById("register-form");
 
+    // Скрываем форму входа и показываем форму регистрации
     if (authForm) authForm.classList.remove("show");
     if (registerForm) registerForm.classList.add("show");
 }
@@ -30,11 +19,20 @@ function toggleToLoginForm() {
     const authForm = document.getElementById("auth-form");
     const registerForm = document.getElementById("register-form");
 
+    // Скрываем форму регистрации и показываем форму входа
     if (registerForm) registerForm.classList.remove("show");
     if (authForm) authForm.classList.add("show");
 }
 
-// Функция для регистрации пользователя
+// Функция для закрытия окна регистрации
+function toggleRegisterForm() {
+    const registerForm = document.getElementById("register-form");
+
+    // Закрыть окно регистрации
+    if (registerForm) registerForm.classList.remove("show");
+}
+
+// Функция для регистрации нового пользователя
 async function registerUser(event) {
     event.preventDefault();
 
@@ -42,19 +40,23 @@ async function registerUser(event) {
     const email = document.querySelector("#register-form input[placeholder='Email']").value;
     const password = document.querySelector("#register-form input[placeholder='Password']").value;
 
-    const response = await fetch(`${API_AUTH}/register`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, email, password })
-    });
+    try {
+        const response = await fetch("http://localhost:8081/register", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username, email, password })
+        });
 
-    const data = await response.json();
+        const data = await response.json();
 
-    if (response.ok) {
-        localStorage.setItem("token", data.token);
-        showProfile(username);
-    } else {
-        alert("Ошибка регистрации: " + (data.error || "неизвестная ошибка"));
+        if (response.ok) {
+            alert("Регистрация прошла успешно!");
+            toggleToLoginForm(); // Переключаем на форму входа
+        } else {
+            alert("Ошибка регистрации: " + data.error);
+        }
+    } catch (error) {
+        console.error("Ошибка регистрации:", error);
     }
 }
 
@@ -65,88 +67,81 @@ async function loginUser(event) {
     const email = document.querySelector("#auth-form input[placeholder='Email']").value;
     const password = document.querySelector("#auth-form input[placeholder='Password']").value;
 
-    const response = await fetch(`${API_AUTH}/login`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password })
-    });
+    try {
+        const response = await fetch("http://localhost:8081/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email, password })
+        });
 
-    const data = await response.json();
+        const data = await response.json();
 
-    if (response.ok) {
-        localStorage.setItem("token", data.token);
-        showProfile(data.username);
-    } else {
-        alert("Ошибка входа: " + (data.error || "неизвестная ошибка"));
+        if (response.ok) {
+            localStorage.setItem("auth_token", data.token);
+            showProfile(data.username); // Если авторизация успешна, показываем профиль
+        } else {
+            alert("Ошибка входа: " + data.error);
+        }
+    } catch (error) {
+        console.error("Ошибка входа:", error);
     }
 }
 
 // Функция для отображения профиля
 function showProfile(username) {
+    const profileForm = document.getElementById("profile-form");
     const authForm = document.getElementById("auth-form");
-    const registerForm = document.getElementById("register-form");
-    const profile = document.getElementById("profile-form");
+
+    if (authForm) authForm.classList.add("hidden"); // Прячем форму входа, если пользователь авторизован
+    if (profileForm) profileForm.classList.remove("hidden"); // Показываем окно профиля
+
     const nickname = document.getElementById("nickname");
-
-    if (authForm) authForm.classList.add("hidden");
-    if (registerForm) registerForm.classList.add("hidden");
-    if (profile) profile.classList.remove("hidden");
-    if (nickname) nickname.textContent = username;
-}
-
-// Функция выхода из аккаунта
-function quitAccount() {
-    localStorage.removeItem("token");
-    const profile = document.getElementById("profile-form");
-    const authForm = document.getElementById("auth-form");
-
-    if (profile) profile.classList.add("hidden");
-    if (authForm) authForm.classList.remove("hidden");
-}
-
-// Функция для проверки авторизации
-async function checkAuth() {
-    const token = localStorage.getItem("token");
-    if (!token) return;
-
-    try {
-        const response = await fetch(`${API_AUTH}/profile`, {
-            method: "GET",
-            headers: { "Authorization": `Bearer ${token}` }
-        });
-
-        const text = await response.text(); // Считываем ответ как текст
-        console.log(text);  // Логируем ответ, чтобы увидеть, что приходит
-
-        const data = JSON.parse(text); // Преобразуем в JSON, если это правильный JSON
-
-        if (response.ok) {
-            showProfile(data.username);
-        } else {
-            console.error("Ошибка получения данных профиля:", data);
-            localStorage.removeItem("token");
-        }
-    } catch (error) {
-        console.error("Ошибка при обработке ответа:", error);
+    if (nickname) {
+        nickname.textContent = username; // Отображаем никнейм пользователя в окне профиля
     }
 }
 
-// Инициализация и проверка авторизации на старте
-document.addEventListener("DOMContentLoaded", function () {
-    checkAuth();
+// Функция для выхода пользователя
+function quitAccount() {
+    localStorage.removeItem("auth_token"); // Удаляем токен из localStorage
+    toggleProfileForm(); // Закрываем окно профиля
+    toggleAuthForm(); // Открываем окно входа
+}
+
+// Функция для открытия и закрытия окна профиля
+function toggleProfileForm() {
+    const profileForm = document.getElementById("profile-form");
+    profileForm.classList.toggle("hidden");
+}
+
+// Инициализация слушателей событий для форм
+document.addEventListener("DOMContentLoaded", function() {
+    const token = localStorage.getItem("auth_token");
+
+    if (token) {
+        fetch("http://localhost:8081/profile", {
+            method: "GET",
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.username) {
+                showProfile(data.username); // Если токен есть и данные профиля получены, показываем профиль
+            }
+        })
+        .catch(error => console.error("Ошибка при получении профиля:", error));
+    }
 
     const registerButton = document.getElementById("register-button");
+    const authButton = document.getElementById("auth-button");
+
     if (registerButton) {
         registerButton.addEventListener("click", registerUser);
     }
 
-    const authButton = document.getElementById("auth-button");
     if (authButton) {
         authButton.addEventListener("click", loginUser);
-    }
-
-    const quitButton = document.getElementById("quit-button");
-    if (quitButton) {
-        quitButton.addEventListener("click", quitAccount);
     }
 });
