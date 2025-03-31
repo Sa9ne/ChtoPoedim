@@ -13,10 +13,10 @@ func Profile(ctx *gin.Context) {
 	var user models.Users
 
 	userID, _ := ctx.Get("user")
-	claims, _ := userID.(*jwt.MapClaims)
+	claims, ok := userID.(*jwt.MapClaims)
 
-	if userID == "" {
-		ctx.JSON(http.StatusBadRequest, gin.H{"error": "Don't have user header"})
+	if !ok || claims == nil {
+		ctx.JSON(http.StatusUnauthorized, gin.H{"error": "Invalid token or missing claims"})
 		return
 	}
 
