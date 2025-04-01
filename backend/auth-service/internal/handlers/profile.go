@@ -6,30 +6,19 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/golang-jwt/jwt"
 )
 
 func Profile(ctx *gin.Context) {
 	var user models.Users
 
-	userID, _ := ctx.Get("user")
-	claims, ok := userID.(*jwt.MapClaims)
-
-	if !ok || claims == nil {
-		ctx.JSON(http.StatusUnauthorized, gin.H{"error": "Invalid token or missing claims"})
+	userID := ctx.GetHeader("user")
+	if userID == "" {
+		ctx.JSON(http.StatusBadRequest, gin.H{"error": "Don't have user header"})
 		return
 	}
 
-	claimsMap := *claims
-
-	if err := database.DB.First(&user, claimsMap["sub"]).Error; err != nil {
+	if err := database.DB.Where("id = ?", userID).First(&user).Error; err != nil {
 		ctx.JSON(http.StatusInternalServerError, gin.H{"error": "Can't find user"})
 		return
 	}
-
-	ctx.JSON(http.StatusOK, gin.H{
-		"id":    user.ID,
-		"name":  user.Name,
-		"email": user.Email,
-	})
 }
