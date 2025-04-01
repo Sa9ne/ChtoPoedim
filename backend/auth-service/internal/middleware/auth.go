@@ -17,6 +17,7 @@ func RequireAuth(ctx *gin.Context) {
 	tokenString, err := ctx.Cookie("Authorization")
 	if err != nil {
 		ctx.JSON(http.StatusUnauthorized, gin.H{"error": "Failed to find cookies"})
+		return
 	}
 
 	// Парсим токен
@@ -25,6 +26,8 @@ func RequireAuth(ctx *gin.Context) {
 	}, jwt.WithValidMethods([]string{jwt.SigningMethodHS256.Alg()}))
 	if err != nil {
 		log.Fatal(err)
+		ctx.JSON(http.StatusUnauthorized, gin.H{"error": "Failed to parse token"})
+		return
 	}
 
 	if claims, ok := token.Claims.(jwt.MapClaims); ok {
@@ -32,6 +35,7 @@ func RequireAuth(ctx *gin.Context) {
 		// Проверим exp
 		if float64(time.Now().Unix()) > claims["exp"].(float64) {
 			ctx.JSON(http.StatusUnauthorized, gin.H{"error": "Failed exportation"})
+			return
 		}
 
 		// Найдем такого пользователя
@@ -40,6 +44,7 @@ func RequireAuth(ctx *gin.Context) {
 
 		if user.ID == 0 {
 			ctx.JSON(http.StatusUnauthorized, gin.H{"error": "Incorrect user ID"})
+			return
 		}
 
 		// Закрепим этого пользователя
@@ -50,7 +55,6 @@ func RequireAuth(ctx *gin.Context) {
 
 	} else {
 		ctx.JSON(http.StatusUnauthorized, gin.H{"error": "Something went wrong"})
+		return
 	}
-
-	ctx.Next()
 }

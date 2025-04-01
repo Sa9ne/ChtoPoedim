@@ -20,8 +20,6 @@ func Start() {
 	s.POST("/login", handlers.Login)
 	s.GET("/validate", middleware.RequireAuth, handlers.Validate)
 
-	s.GET("/profile", handlers.Profile)
-
 	err := s.Run(":8081")
 	if err != nil {
 		log.Println("Server doesn't start")
