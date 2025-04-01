@@ -3,6 +3,7 @@ package server
 import (
 	"LetsEat/backend/auth-service/internal/database"
 	"LetsEat/backend/auth-service/internal/handlers"
+	"LetsEat/backend/auth-service/internal/middleware"
 	"LetsEat/backend/auth-service/internal/models"
 	"log"
 
@@ -15,9 +16,9 @@ func Start() {
 	s := gin.Default()
 	s.Use(models.CORSConfig())
 
-	s.GET("/", handlers.WelcomeReq)
 	s.POST("/register", handlers.Register)
 	s.POST("/login", handlers.Login)
+	s.GET("/validate", middleware.RequireAuth, handlers.Validate)
 
 	s.GET("/profile", handlers.Profile)
 
