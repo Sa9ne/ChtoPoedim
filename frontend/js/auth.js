@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const token = localStorage.getItem("auth_token");
 
     if (token) {
-        fetch("http://localhost:8081/profile", {
+        fetch("http://localhost:8081/validate", {
             method: "GET",
             headers: {
                 "Authorization": `Bearer ${token}`

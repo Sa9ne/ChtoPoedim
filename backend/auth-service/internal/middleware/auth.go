@@ -16,8 +16,7 @@ func RequireAuth(ctx *gin.Context) {
 	// Получим JWT из cookie
 	tokenString, err := ctx.Cookie("Authorization")
 	if err != nil {
-		ctx.JSON(http.StatusUnauthorized, gin.H{"error": "Failed to find cookies"})
-		return
+		ctx.AbortWithStatus(http.StatusUnauthorized)
 	}
 
 	// Парсим токен
@@ -26,15 +25,13 @@ func RequireAuth(ctx *gin.Context) {
 	}, jwt.WithValidMethods([]string{jwt.SigningMethodHS256.Alg()}))
 	if err != nil {
 		log.Fatal(err)
-		ctx.JSON(http.StatusUnauthorized, gin.H{"error": "Failed to parse token"})
-		return
 	}
 
 	if claims, ok := token.Claims.(jwt.MapClaims); ok {
 
 		// Проверим exp
 		if float64(time.Now().Unix()) > claims["exp"].(float64) {
-			ctx.JSON(http.StatusUnauthorized, gin.H{"error": "Failed exportation"})
+			ctx.AbortWithStatus(http.StatusUnauthorized)
 			return
 		}
 
@@ -43,7 +40,7 @@ func RequireAuth(ctx *gin.Context) {
 		database.DB.First(&user, claims["sub"])
 
 		if user.ID == 0 {
-			ctx.JSON(http.StatusUnauthorized, gin.H{"error": "Incorrect user ID"})
+			ctx.AbortWithStatus(http.StatusUnauthorized)
 			return
 		}
 
@@ -54,7 +51,7 @@ func RequireAuth(ctx *gin.Context) {
 		ctx.Next()
 
 	} else {
-		ctx.JSON(http.StatusUnauthorized, gin.H{"error": "Something went wrong"})
+		ctx.AbortWithStatus(http.StatusUnauthorized)
 		return
 	}
 }
