@@ -32,7 +32,7 @@
 
             <button class="lang-button" onclick="toggleLangModal()" id="selected-lang"></button>
 
-            <div class="avatar" onclick="toggleAuthForm()">
+            <div class="avatar" onclick="toggleLogInForm()">
                 <button>
                     <img src="/frontend/icons/user.png" alt="Ava" class="User-icon">
                 </button>
@@ -47,8 +47,8 @@
             </div>
 
             <!-- Модальное окно для входа -->
-            <div class="auth-container hidden" id="auth-form">
-                <button class="close-btn" onclick="toggleAuthForm()">
+            <div class="auth-container" id="auth-form">
+                <button class="close-btn" onclick="toggleLogInForm()">
                     &times;
                 </button>
                 <h2 data-translate="login_title" id="auth-title">Log In</h2>
@@ -59,13 +59,13 @@
                 </form>
                 <div class="separator">
                     <p id="toggle-text" data-translate="no_account">
-                        No account? <a href="#" data-translate="register_link" onclick="toggleToRegisterForm()">Register</a>
+                        No account? <a href="#" data-translate="register_link" onclick="toggleRegisterForm()">Register</a>
                     </p>
                 </div>
             </div>
 
             <!-- Модальное окно для регистрации -->
-            <div class="register-container hidden" id="register-form">
+            <div class="register-container" id="register-form">
                 <button class="close-btn" onclick="toggleRegisterForm()">&times;</button>
                 <h2 data-translate="register_title" id="register-title">Register</h2>
                 <form>
@@ -76,13 +76,13 @@
                 </form>
                 <div class="separator">
                     <p id="toggle-text">
-                        <a href="#" data-translate="back_to_sign_in" onclick="toggleToLoginForm()">Back to sign in</a>
+                        <a href="#" data-translate="back_to_sign_in" onclick="toggleLogInForm()">Back to sign in</a>
                     </p>
                 </div>
             </div>
 
             <!-- Модальное окно для профиля -->
-            <div class="modal-container hidden" id="profile-form">
+            <div class="modal-container" id="profile-form">
                 <button class="close-btn-profile" onclick="toggleProfileForm()">
                     &times;
                 </button>

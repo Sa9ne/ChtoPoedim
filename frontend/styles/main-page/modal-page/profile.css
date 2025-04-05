@@ -12,10 +12,6 @@
     display: none;
 }
 
-.modal-container.show {
-    display: block;
-}
-
 .close-btn-profile {
     position: absolute;
     top: -5px;
