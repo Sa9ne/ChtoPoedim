@@ -15,6 +15,11 @@ function toggleLogInForm() {
 }
 // Открытие окна профиля
 function OpenProfile() {
+    const username = localStorage.getItem('name');
+
+    const profileTitle = document.getElementById("profile-title")
+    profileTitle.textContent = username || "Noname"
+
     CloseModal(OpenProf);
     OpenProf.classList.toggle("hidden")
 }
@@ -44,6 +49,7 @@ async function RegisterUser(e) {
             // Ждем ответа от сервера
             const data = await response.json();
         if (response.ok) {
+            localStorage.setItem('name', data.name);
             CloseModal();
         } else {
             errorEl.textContent = data.error || "Произошла ошибка регистрации.";
@@ -71,6 +77,7 @@ async function LogInUser(e) {
         if (response.ok) {
             localStorage.setItem('auth_token', data.token);
             CloseModal();
+            OpenProfile();
         } else {
             errorEl.textContent = data.error || "Произошла ошибка входа."
         }

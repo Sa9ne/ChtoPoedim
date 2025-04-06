@@ -46,5 +46,9 @@ func Register(ctx *gin.Context) {
 		return
 	}
 
-	ctx.JSON(http.StatusOK, gin.H{"message": "New user created successfully!"})
+	ctx.JSON(http.StatusOK, gin.H{
+		"name":  user.Name,
+		"email": user.Email,
+		"id":    user.ID,
+	})
 }
