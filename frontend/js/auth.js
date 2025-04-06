@@ -1,12 +1,10 @@
 // Открытие окна входа
 function toggleLogInForm() {
-    CloseModal(); 
-
-    authForm.classList.toggle("hidden"); 
+    CloseModal(AuthForm);
+    AuthForm.classList.toggle("hidden");
 }
 // Открытие регистрационного окна
 function toggleRegisterForm() {
-    CloseModal(); 
-
+    CloseModal(RegisterForm);
     RegisterForm.classList.toggle("hidden"); 
 }

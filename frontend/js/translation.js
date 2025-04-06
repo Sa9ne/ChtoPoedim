@@ -1,6 +1,5 @@
 // Функция открытия окна языков
 function OpenLangModal() {
-    CloseModal();
-
+    CloseModal(OpenLang);
     OpenLang.classList.toggle("hidden")
 }
