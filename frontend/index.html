@@ -48,9 +48,7 @@
 
             <!-- Модальное окно для входа -->
             <div class="auth-container hidden" id="auth-form">
-                <button class="close-btn" onclick="toggleProfileForm()">
-                    &times;
-                </button>
+                <button class="close-btn" onclick="toggleLogInForm()">&times;</button>
                 <h2 data-translate="login_title" id="auth-title">Log In</h2>
                 <form id="auth-form" onsubmit="LogInUser(event)">
                     <input type="email" data-translate="email_placeholder" placeholder="Email" id="LogIn-email" required>

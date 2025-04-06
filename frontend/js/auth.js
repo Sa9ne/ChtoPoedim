@@ -69,6 +69,7 @@ async function LogInUser(e) {
         });
             const data = await response.json();
         if (response.ok) {
+            localStorage.setItem('auth_token', data.token);
             CloseModal();
         } else {
             errorEl.textContent = data.error || "Произошла ошибка входа."
@@ -76,4 +77,10 @@ async function LogInUser(e) {
     } catch (err) {
         errorEl.textContent = "Ошибка сети: " + err.message
     }
+}
+// Кнопка выхода из аккаунта
+function quitAccount() {
+    localStorage.removeItem('auth_token');
+    OpenProf.classList.add("hidden");
+    toggleLogInForm(); 
 }
