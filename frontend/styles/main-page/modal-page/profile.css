@@ -1,7 +1,7 @@
 .modal-container {
     position: absolute;
     top: 75px;
-    left: 275px;
+    left: 240px;
     background-color: #0c0c0d;
     color: white;
     border-radius: 10px;
@@ -9,7 +9,6 @@
     width: 205px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     z-index: 100;
-    display: none;
 }
 
 .close-btn-profile {

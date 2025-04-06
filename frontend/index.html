@@ -32,7 +32,7 @@
 
             <button class="lang-button" onclick="OpenLangModal()"></button>
 
-            <div class="avatar" onclick="toggleLogInForm()">
+            <div class="avatar" onclick="handleAvatarClick()">
                 <button>
                     <img src="/frontend/icons/user.png" alt="Ava" class="User-icon">
                 </button>
@@ -48,7 +48,7 @@
 
             <!-- Модальное окно для входа -->
             <div class="auth-container hidden" id="auth-form">
-                <button class="close-btn" onclick="toggleLogInForm()">
+                <button class="close-btn" onclick="toggleProfileForm()">
                     &times;
                 </button>
                 <h2 data-translate="login_title" id="auth-title">Log In</h2>
@@ -78,14 +78,14 @@
                 </form>
                 <div class="separator">
                     <p id="toggle-text">
-                        <a href="#" data-translate="back_to_sign_in" onclick="toggleLogInForm()">Back to sign in</a>
+                        <a href="#" data-translate="back_to_sign_in" onclick="toggleProfileForm()">Back to sign in</a>
                     </p>
                 </div>
             </div>
 
             <!-- Модальное окно для профиля -->
             <div class="modal-container hidden" id="profile-form">
-                <button class="close-btn-profile" onclick="toggleProfileForm()">
+                <button class="close-btn-profile" onclick="OpenProfile()">
                     &times;
                 </button>
                 <h2 class="Nicknametext" id="profile-title" for="nickname">Nickname</h2>

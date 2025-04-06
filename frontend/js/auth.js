@@ -1,7 +1,22 @@
+// Нажатие на аватар
+function handleAvatarClick() {
+    const token = localStorage.getItem('auth_token');
+
+    if (token) {
+        OpenProfile();
+    } else {
+        toggleLogInForm();
+    }
+}
 // Открытие окна входа
 function toggleLogInForm() {
     CloseModal(AuthForm);
     AuthForm.classList.toggle("hidden");
+}
+// Открытие окна профиля
+function OpenProfile() {
+    CloseModal(OpenProf);
+    OpenProf.classList.toggle("hidden")
 }
 // Открытие регистрационного окна
 function toggleRegisterForm() {
