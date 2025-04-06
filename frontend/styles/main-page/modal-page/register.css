@@ -75,3 +75,9 @@
 #toggle-text a:hover {
     color: #4CAF50;
 }
+
+.error-message {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 4px;
+}

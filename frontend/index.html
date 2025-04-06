@@ -52,10 +52,11 @@
                     &times;
                 </button>
                 <h2 data-translate="login_title" id="auth-title">Log In</h2>
-                <form>
-                    <input type="email" data-translate="email_placeholder" placeholder="Email" required>
-                    <input type="password" data-translate="password_placeholder" placeholder="Password" required>
-                    <button data-translate="login_button" id="auth-button">Log In</button>
+                <form id="auth-form" onsubmit="LogInUser(event)">
+                    <input type="email" data-translate="email_placeholder" placeholder="Email" id="LogIn-email" required>
+                    <input type="password" data-translate="password_placeholder" placeholder="Password" id="LogIn-password" required>
+                    <p id="LogIn-error" class="error-message"></p>
+                    <button type="submit" data-translate="login_button" id="auth-button">Log In</button>
                 </form>
                 <div class="separator">
                     <p id="toggle-text" data-translate="no_account">
@@ -68,11 +69,12 @@
             <div class="register-container hidden" id="register-form">
                 <button class="close-btn" onclick="toggleRegisterForm()">&times;</button>
                 <h2 data-translate="register_title" id="register-title">Register</h2>
-                <form>
-                    <input type="text" data-translate="username_placeholder" placeholder="Username" required>
-                    <input type="email" data-translate="email_placeholder" placeholder="Email" required>
-                    <input type="password" data-translate="password_placeholder" placeholder="Password" required>
-                    <button data-translate="register_button" id="register-button">Register</button>
+                <form id="register-form" onsubmit="RegisterUser(event)">
+                    <input type="text" data-translate="username_placeholder" placeholder="Username" id="register-name" required>
+                    <input type="email" data-translate="email_placeholder" placeholder="Email" id="register-email" required>
+                    <input type="password" data-translate="password_placeholder" placeholder="Password" id="register-password" required>
+                    <p id="register-error" class="error-message"></p>
+                    <button type="submit" data-translate="register_button" id="register-button">Register</button>
                 </form>
                 <div class="separator">
                     <p id="toggle-text">
