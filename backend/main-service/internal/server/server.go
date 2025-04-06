@@ -1,10 +1,8 @@
 package server
 
 import (
-	"LetsEat/backend/main-service/internal/database"
-	"LetsEat/backend/main-service/internal/handlers"
-	"LetsEat/backend/main-service/internal/localization"
-	"LetsEat/backend/main-service/internal/middlewares"
+	"ChtoPoedim/backend/main-service/internal/database"
+	"ChtoPoedim/backend/main-service/internal/handlers"
 	"log"
 
 	"github.com/gin-gonic/gin"
@@ -17,20 +15,11 @@ func Start() {
 	database.ConnectDB()
 
 	// Работа статической директории frontend
-	s.Static("/frontend", "D:/important/Let's Eat/frontend")
-
-	// Загрузка языковых файлов
-	if err := localization.LoadTranslations(); err != nil {
-		log.Fatal("Ошибка загрузки переводов:", err)
-	}
-
-	// Ставим middlewares для проверки языка
-	s.Use(middlewares.LangCheck)
+	s.Static("/frontend", "D:/important/ChtoPoedim/frontend")
 
 	// Маршрутизаторы
 	s.GET("/", handlers.WelcomeReq)
 	s.GET("/search", handlers.SearchRecipes)
-	s.GET("/get-translations", handlers.GetTranslations)
 
 	err := s.Run(":8080")
 	if err != nil {

@@ -1,8 +1,8 @@
 package middleware
 
 import (
-	"LetsEat/backend/auth-service/internal/database"
-	"LetsEat/backend/auth-service/internal/models"
+	"ChtoPoedim/backend/auth-service/internal/database"
+	"ChtoPoedim/backend/auth-service/internal/models"
 	"log"
 	"net/http"
 	"os"

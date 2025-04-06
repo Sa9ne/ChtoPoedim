@@ -1,7 +1,7 @@
 package handlers
 
 import (
-	"LetsEat/backend/main-service/internal/database"
+	"ChtoPoedim/backend/main-service/internal/database"
 	"net/http"
 
 	"github.com/gin-gonic/gin"

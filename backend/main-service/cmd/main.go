@@ -1,7 +1,7 @@
 package main
 
 import (
-	"LetsEat/backend/main-service/internal/server"
+	"ChtoPoedim/backend/main-service/internal/server"
 )
 
 func main() {

@@ -1,8 +1,8 @@
 package handlers
 
 import (
-	"LetsEat/backend/auth-service/internal/database"
-	"LetsEat/backend/auth-service/internal/models"
+	"ChtoPoedim/backend/auth-service/internal/database"
+	"ChtoPoedim/backend/auth-service/internal/models"
 	"net/http"
 	"os"
 	"time"

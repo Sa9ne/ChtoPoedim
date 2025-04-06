@@ -1,7 +1,7 @@
 package database
 
 import (
-	"LetsEat/backend/auth-service/internal/models"
+	"ChtoPoedim/backend/auth-service/internal/models"
 	"log"
 	"os"
 

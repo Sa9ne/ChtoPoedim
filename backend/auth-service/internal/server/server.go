@@ -1,10 +1,10 @@
 package server
 
 import (
-	"LetsEat/backend/auth-service/internal/database"
-	"LetsEat/backend/auth-service/internal/handlers"
-	"LetsEat/backend/auth-service/internal/middleware"
-	"LetsEat/backend/auth-service/internal/models"
+	"ChtoPoedim/backend/auth-service/internal/database"
+	"ChtoPoedim/backend/auth-service/internal/handlers"
+	"ChtoPoedim/backend/auth-service/internal/middleware"
+	"ChtoPoedim/backend/auth-service/internal/models"
 	"log"
 
 	"github.com/gin-gonic/gin"
