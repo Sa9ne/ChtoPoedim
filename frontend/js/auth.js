@@ -1,15 +1,12 @@
-// Константы
-    const authForm = document.getElementById("auth-form")
-    const RegisterForm = document.getElementById("register-form")
 // Открытие окна входа
 function toggleLogInForm() {
-    RegisterForm.classList.add("hidden"); 
+    CloseModal(); 
 
     authForm.classList.toggle("hidden"); 
 }
 // Открытие регистрационного окна
 function toggleRegisterForm() {
-    authForm.classList.add("hidden"); 
+    CloseModal(); 
 
     RegisterForm.classList.toggle("hidden"); 
 }

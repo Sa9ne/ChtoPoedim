@@ -1,5 +1,6 @@
-const OpenLang = document.getElementById("lang-modal")
 // Функция открытия окна языков
 function OpenLangModal() {
+    CloseModal();
+
     OpenLang.classList.toggle("hidden")
 }
