@@ -30,7 +30,7 @@
                 </form>
             </div>
 
-            <button class="lang-button" onclick="toggleLangModal()" id="selected-lang"></button>
+            <button class="lang-button" onclick="OpenLangModal()"></button>
 
             <div class="avatar" onclick="toggleLogInForm()">
                 <button>
@@ -39,15 +39,15 @@
             </div>
 
             <!-- Модальное окно языков -->
-            <div id="lang-modal">
-                <div class="modal-content" onclick="event.stopPropagation();">
+            <div class="lang-modal hidden" id="lang-modal">
+                <div class="modal-content">
                     <button onclick="changeLanguage('en')">Eng</button>
                     <button onclick="changeLanguage('ru')">Рус</button>
                 </div>
             </div>
 
             <!-- Модальное окно для входа -->
-            <div class="auth-container" id="auth-form">
+            <div class="auth-container hidden" id="auth-form">
                 <button class="close-btn" onclick="toggleLogInForm()">
                     &times;
                 </button>
@@ -65,7 +65,7 @@
             </div>
 
             <!-- Модальное окно для регистрации -->
-            <div class="register-container" id="register-form">
+            <div class="register-container hidden" id="register-form">
                 <button class="close-btn" onclick="toggleRegisterForm()">&times;</button>
                 <h2 data-translate="register_title" id="register-title">Register</h2>
                 <form>
@@ -82,7 +82,7 @@
             </div>
 
             <!-- Модальное окно для профиля -->
-            <div class="modal-container" id="profile-form">
+            <div class="modal-container hidden" id="profile-form">
                 <button class="close-btn-profile" onclick="toggleProfileForm()">
                     &times;
                 </button>

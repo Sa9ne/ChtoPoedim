@@ -3,21 +3,13 @@
     const RegisterForm = document.getElementById("register-form")
 // Открытие окна входа
 function toggleLogInForm() {
-    RegisterForm.style.display = "none";
+    RegisterForm.classList.add("hidden"); 
 
-    if (authForm.style.display === "none" || authForm.style.display === "") {
-        authForm.style.display = "block"
-    } else {
-        authForm.style.display = "none"
-    }
+    authForm.classList.toggle("hidden"); 
 }
 // Открытие регистрационного окна
 function toggleRegisterForm() {
-    authForm.style.display = "none";
+    authForm.classList.add("hidden"); 
 
-    if (RegisterForm.style.display === "none" || RegisterForm.style.display === "") {
-        RegisterForm.style.display = "block"
-    } else {
-        RegisterForm.style.display = "none"
-    }
+    RegisterForm.classList.toggle("hidden"); 
 }
