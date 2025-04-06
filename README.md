@@ -1,3 +1,3 @@
-# Let's eat
+# Что поедим?
 
-**Let's eat** is a site that helps you choose what food you want to eat.
+**Что поедим** это сайт, который поможет тебе сделать выбор блюда в любое время
