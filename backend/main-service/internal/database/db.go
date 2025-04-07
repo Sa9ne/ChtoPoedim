@@ -21,7 +21,7 @@ type Dishes struct {
 
 func ConnectDB() {
 
-	err := godotenv.Load()
+	err := godotenv.Load("D:/important/ChtoPoedim/.env")
 	if err != nil {
 		log.Fatal("Failed to load .env file")
 	}
