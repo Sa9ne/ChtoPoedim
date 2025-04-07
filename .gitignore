@@ -1,1 +1,22 @@
 .env
+
+# Логи и временные файлы
+*.log
+*.out
+*.exe
+*.swp
+
+# Бинарники (если компилируешь рядом с исходниками)
+backend/auth-service/auth-service
+backend/main-service/main-service
+
+# Если используешь папку для сборки
+bin/
+build/
+
+# node_modules и dist — если фронтенд на Node.js
+node_modules/
+dist/
+
+# Системные файлы
+.DS_Store

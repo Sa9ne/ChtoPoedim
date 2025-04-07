@@ -1,7 +1,7 @@
 package handlers
 
 import (
-	"ChtoPoedim/backend/main-service/internal/database"
+	"main-service/internal/database"
 	"net/http"
 
 	"github.com/gin-gonic/gin"

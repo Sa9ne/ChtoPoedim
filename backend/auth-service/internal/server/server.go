@@ -1,10 +1,10 @@
 package server
 
 import (
-	"ChtoPoedim/backend/auth-service/internal/database"
-	"ChtoPoedim/backend/auth-service/internal/handlers"
-	"ChtoPoedim/backend/auth-service/internal/middleware"
-	"ChtoPoedim/backend/auth-service/internal/models"
+	"auth-service/internal/database"
+	"auth-service/internal/handlers"
+	"auth-service/internal/middleware"
+	"auth-service/internal/models"
 	"log"
 
 	"github.com/gin-gonic/gin"

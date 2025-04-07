@@ -1,0 +1,21 @@
+# Start from official Go image
+FROM golang:1.24-alpine
+
+# Set working directory
+WORKDIR /app
+
+# Copy go.mod and go.sum
+COPY go.mod go.sum ./
+RUN go mod download
+
+# Copy the source code
+COPY . .
+
+# Set environment variable to production
+ENV GIN_MODE=release
+
+# Build the binary
+RUN go build -o auth-service ./cmd/main.go
+
+# Run the binary
+CMD ["./auth-service"]

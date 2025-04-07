@@ -1,9 +1,9 @@
 package server
 
 import (
-	"ChtoPoedim/backend/main-service/internal/database"
-	"ChtoPoedim/backend/main-service/internal/handlers"
 	"log"
+	"main-service/internal/database"
+	"main-service/internal/handlers"
 
 	"github.com/gin-gonic/gin"
 )

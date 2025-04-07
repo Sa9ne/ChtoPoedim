@@ -1,8 +1,8 @@
 package handlers
 
 import (
-	"ChtoPoedim/backend/auth-service/internal/database"
-	"ChtoPoedim/backend/auth-service/internal/models"
+	"auth-service/internal/database"
+	"auth-service/internal/models"
 	"net/http"
 	"os"
 	"time"

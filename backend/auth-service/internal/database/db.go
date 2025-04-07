@@ -1,7 +1,7 @@
 package database
 
 import (
-	"ChtoPoedim/backend/auth-service/internal/models"
+	"auth-service/internal/models"
 	"log"
 	"os"
 
