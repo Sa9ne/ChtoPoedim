@@ -1,22 +1,26 @@
-.env
-
 # Логи и временные файлы
 *.log
 *.out
 *.exe
 *.swp
 
-# Бинарники (если компилируешь рядом с исходниками)
-backend/auth-service/auth-service
-backend/main-service/main-service
+# Go бинарники (если компилируешь рядом с исходниками)
+backend/**/auth-service
+backend/**/main-service
 
-# Если используешь папку для сборки
+# Общие каталоги сборки
 bin/
 build/
 
-# node_modules и dist — если фронтенд на Node.js
+# Node.js
 node_modules/
 dist/
 
-# Системные файлы
+# IDE и системные файлы
 .DS_Store
+.idea/
+.vscode/
+
+# Docker
+.env
+docker-compose.override.yml

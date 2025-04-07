@@ -1,52 +1,37 @@
-version: '3.8'
-
 services:
-  postgres:
-    image: postgres:15
-    container_name: postgres
-    restart: always
-    env_file: 
-      - .env
-    environment:
-      POSTGRES_USER: ${DB_USER}
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
-      POSTGRES_DB: ${DB_NAME}
-    ports:
-      - "${DB_PORT}:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-
   auth-service:
     build: ./backend/auth-service
     container_name: auth-service
-    env_file: 
+    ports:
+      - "${PORT_AUTH}:${PORT_AUTH}"
+    env_file:
       - .env
     environment:
       - PORT=${PORT_AUTH}
-      - DB_HOST=postgres
-      - DB_PORT=5432
+      - DB_HOST=${DB_HOST}
+      - DB_PORT=${DB_PORT}
       - DB_USER=${DB_USER}
       - DB_PASSWORD=${DB_PASSWORD}
       - DB_NAME=${DB_NAME}
-    ports:
-      - "${PORT_AUTH}:${PORT_AUTH}"
+      - DATABASE_URL=${DATABASE_URL}
     depends_on:
       - postgres
 
   main-service:
     build: ./backend/main-service
     container_name: main-service
-    env_file: 
+    ports:
+      - "${PORT_MAIN}:${PORT_MAIN}"
+    env_file:
       - .env
     environment:
       - PORT=${PORT_MAIN}
-      - DB_HOST=postgres  
-      - DB_PORT=5432      
+      - DB_HOST=${DB_HOST}
+      - DB_PORT=${DB_PORT}
       - DB_USER=${DB_USER}
       - DB_PASSWORD=${DB_PASSWORD}
       - DB_NAME=${DB_NAME}
-    ports:
-      - "${PORT_MAIN}:${PORT_MAIN}"
+      - DATABASE_URL=${DATABASE_URL} 
     depends_on:
       - postgres
       - auth-service
@@ -56,9 +41,27 @@ services:
     container_name: frontend
     ports:
       - "${PORT_FRONTEND}:80"
+    env_file:
+      - .env
     depends_on:
       - main-service
       - auth-service
 
+  postgres:
+    image: postgres:15
+    container_name: postgres
+    restart: always
+    env_file:
+      - .env
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "${DB_PORT}:${DB_PORT}"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+# Добавьте эту секцию в конец файла
 volumes:
   postgres_data:
