@@ -1,0 +1,14 @@
+{
+    "slogan": "What are we eating?",
+    "search_placeholder": "Search for a dish...",
+    "login_title": "Log In",
+    "email_placeholder": "Email",
+    "password_placeholder": "Password",
+    "login_button": "Log In",
+    "no_account": "No account? <a href='#' onclick='toggleRegisterForm()'>Register</a>",
+    "register_link": "Register",
+    "register_title": "Register",
+    "username_placeholder": "Username",
+    "register_button": "Register",
+    "back_to_sign_in": "Back to sign in"
+}
