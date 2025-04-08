@@ -11,6 +11,7 @@
 .Email {
     text-align: left;
     position: relative;
+    font-size: 26px;
     top: 15px;
     left: 15px;
 }

@@ -18,27 +18,25 @@
 
 .register-container input {
     width: 100%;
-    padding: 12px;
+    padding: 8px;
     margin-top: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #0c0c0d;
     color: white;
-    font-size: 14px;
+    font-size: 20px;
     transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 #register-button {
     background-color: #4CAF50;
     color: white;
-    font-size: 16px;
-    padding: 12px;
+    font-size: 24px;
+    padding: 5px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     width: 100%;
-    margin-top: 15px;
-    transition: background-color 0.3s ease;
+    margin-top: 12px;
 }
 
 #register-button:hover {
@@ -61,7 +59,7 @@
 }
 
 #toggle-text {
-    margin-top: 20px;
+    margin-top: 10px;
     text-align: center;
 }
 
@@ -80,4 +78,10 @@
   color: red;
   font-size: 0.9rem;
   margin-top: 4px;
+}
+
+.register-container input:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px #4CAF50;
+    outline: none;
 }

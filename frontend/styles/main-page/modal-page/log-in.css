@@ -17,13 +17,12 @@
 
 .auth-container input {
     width: 100%;
-    padding: 12px;
+    padding: 8px;
     margin-top: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #0c0c0d;
     color: white;
-    font-size: 14px;
+    font-size: 20px;
     transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
@@ -36,8 +35,8 @@
 #auth-button {
     background-color: #4CAF50;
     color: white;
-    font-size: 16px;
-    padding: 12px;
+    font-size: 26px;
+    padding: 2px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -58,48 +57,4 @@
 
 .close-btn:hover {
     color: red;
-}
-
-.register-container {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #0c0c0d;
-    color: white;
-    border-radius: 10px;
-    padding: 20px;
-    width: 300px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    z-index: 200;
-}
-
-.register-container input {
-    width: 100%;
-    padding: 12px;
-    margin-top: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #0c0c0d;
-    color: white;
-    font-size: 14px;
-    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-.register-container input:focus {
-    border-color: #4CAF50;
-    box-shadow: 0 0 5px #4CAF50;
-    outline: none;
-}
-
-#register-button {
-    background-color: #4CAF50;
-    color: white;
-    font-size: 16px;
-    padding: 12px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-    margin-top: 15px;
 }
