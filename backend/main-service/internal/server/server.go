@@ -15,7 +15,7 @@ func Start() {
 	database.ConnectDB()
 
 	// Работа статической директории frontend
-	s.Static("/frontend", "D:/important/ChtoPoedim/frontend")
+	s.Static("/frontend", "/Users/user/important/ChtoPoedim/frontend")
 
 	// Маршрутизаторы
 	s.GET("/", handlers.WelcomeReq)
