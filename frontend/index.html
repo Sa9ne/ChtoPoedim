@@ -13,9 +13,10 @@
     <link rel="stylesheet" href="/frontend/styles/main-page/modal-page/register.css">
     <link rel="stylesheet" href="/frontend/styles/main-page/modal-page/languages.css">
     <link rel="stylesheet" href="/frontend/styles/main-page/modal-page/profile.css">
+		<link rel="stylesheet" href="/frontend/styles/main-page/modal-page/catalog.css">
     <link rel="icon" href="/frontend/icons/favicon.ico" type="image/x-icon">
 </head>
-<body>
+<body style="background-color: #0c0c0d;">
 
     <header class="mainmenu">
         <h1 class="slogan">Что поедим?</h1>
@@ -37,6 +38,12 @@
                     <img src="/frontend/icons/user.png" alt="Ava" class="User-icon">
                 </button>
             </div>
+
+						<div class="Catalog" onclick="OpenCatalog()">
+							<button class="Catalog-btn">
+								<img src="frontend/icons/menu.png" alt="Catalog" class="Catalog-img">
+							</button>
+						</div>
 
             <!-- Модальное окно языков -->
             <div class="lang-modal hidden" id="lang-modal">
@@ -95,6 +102,12 @@
                     </div>
                 </form>
             </div>
+						
+						<!-- Модальное окно каталога -->
+						<div class="modal-catalog" id="catalog-form">
+							<a>Text</a>
+						</div>
+
         </div>
     </header>
     
@@ -118,5 +131,6 @@
     <script src="/frontend/js/auth.js"></script>
     <script src="/frontend/js/translation.js"></script>
     <script src="/frontend/js/search.js"></script>
+		<script src="/frontend/js/catalog.js"></script>
 </body>
 </html>
