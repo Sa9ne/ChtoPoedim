@@ -6,7 +6,7 @@
     window.Catalog = document.getElementById("catalog-form")
 // Функция закрытия всех модальных окон
 function CloseModal(expect = null) {
-    const modals = [AuthForm, RegisterForm, OpenLang];
+    const modals = [AuthForm, RegisterForm, OpenLang, OpenProf, Catalog];
 
     modals.forEach(modal => {
         if (modal !== expect) {

@@ -1,8 +1,43 @@
 .main-cont {
     background-color: #17181a;
-    color: white;
     height: 91.5vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+}
+
+.Letseat-label {
+    position: absolute;
+    top: 180px;
+    left: 170px;
+    font-size: 80px;
+    color: white;
+}
+
+.Description-text {
+    position: absolute;
+    top: 265px;
+    left: 170px;
+    color: white;
+    font-size: 26px;
+}
+
+.Btn-finder {
+    position: absolute;
+    top: 310px;
+    left: 60px;
+    border-radius: 18px;
+    width: 530px;
+    height: 75px;
+    background-color:#242424;
+    color: white;
+    font-size: 50px;
+    border: 2px solid white;
+    cursor: pointer;
+}
+
+.Person {
+    position: absolute;
+    top: 175px;
+    left: 50px;
+    width: 120px;
+    height: 120px;
+    filter: invert(1);
 }
