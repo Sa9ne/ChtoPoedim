@@ -21,6 +21,5 @@ dist/
 .idea/
 .vscode/
 
-# Docker
 .env
-docker-compose.override.yml
+.Makefile
