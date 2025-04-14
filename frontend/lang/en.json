@@ -10,5 +10,8 @@
     "register_title": "Register",
     "username_placeholder": "Username",
     "register_button": "Register",
-    "back_to_sign_in": "Back to sign in"
+    "back_to_sign_in": "Back to sign in",
+    "SmartSelection": "Smart selection",
+    "CatalogMenu": "Catalog menu",
+    "DayDish": "<a data-translate='DayDish' onclick='OpenDayDish()'>Dish of the day</a>"
 }

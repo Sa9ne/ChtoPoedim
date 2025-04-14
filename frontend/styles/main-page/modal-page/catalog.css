@@ -7,7 +7,22 @@
   top: 70px;
   left: 350px;
   width: 190px;
-  height: 200px;
+  height: 220px;
   border-radius: 8px;
   background-color: #0c0c0d;
+}
+
+.SmartSelection, .CatalogMenu, .DayDish {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  color: white;
+  transition: background-color 0.3s  ease, color 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.SmartSelection:hover, .CatalogMenu:hover, .DayDish:hover {
+  color: #4CAF50;
 }

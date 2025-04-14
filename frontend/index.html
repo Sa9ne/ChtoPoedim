@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/frontend/styles/main-page/modal-page/languages.css">
     <link rel="stylesheet" href="/frontend/styles/main-page/modal-page/profile.css">
 		<link rel="stylesheet" href="/frontend/styles/main-page/modal-page/catalog.css">
+		<link rel="stylesheet" href="/frontend/styles/main-page/modal-page/dish-day.css">
     <link rel="icon" href="/frontend/icons/favicon.ico" type="image/x-icon">
 </head>
 <body style="background-color: #0c0c0d;">
@@ -105,17 +106,26 @@
 						
 						<!-- Модальное окно каталога -->
 						<div class="modal-catalog hidden" id="catalog-form">
-							<a>Text</a>
+							<a data-translate="SmartSelection" class="SmartSelection">Smart selection</a>
+							<a data-translate="CatalogMenu" class="CatalogMenu">Catalog menu</a>
+							<a data-translate="DayDish" class="DayDish" onclick="OpenDayDish()">Dish of the day</a>
+						</div>
+
+						<!-- Модальное окно Блюда дня -->
+						<div class="Modal-DayDish hidden" id="Dish-day">
+							<button class="close-btn" onclick="OpenDayDish()">&times;</button>
 						</div>
 
         </div>
     </header>
     
     <main class="main-cont">
+			<div class="Center-Container">
         <p class="Letseat-label">что поедим?</p>
 				<p class="Description-text">сервис по быстрому поиску блюд</p>
 				<img class="Person" src="/frontend/icons/Person.png" alt="Person">
 				<button class="Btn-finder">Подбор блюда</button>
+			</div>
     </main>
 
     <footer class="footer-menu">
@@ -133,7 +143,6 @@
     <script src="/frontend/js/main.js"></script>
     <script src="/frontend/js/auth.js"></script>
     <script src="/frontend/js/translation.js"></script>
-    <script src="/frontend/js/search.js"></script>
 		<script src="/frontend/js/catalog.js"></script>
 </body>
 </html>

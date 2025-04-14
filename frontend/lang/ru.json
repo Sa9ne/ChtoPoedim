@@ -10,5 +10,8 @@
     "register_title": "Регистрация",
     "username_placeholder": "Имя пользователя",
     "register_button": "Зарегистрироваться",
-    "back_to_sign_in": "Назад ко входу"
+    "back_to_sign_in": "Назад ко входу",
+    "SmartSelection": "Умный подбор",
+    "CatalogMenu": "Каталог",
+    "DayDish": "<a data-translate='DayDish' onclick='OpenDayDish()'>Блюдо дня</a>"
 }
