@@ -16,7 +16,6 @@ func Start() {
 
 	s.Use(cors.Default())
 
-	// Работа статической директории frontend
 	s.Static("/frontend", "/Users/user/important/ChtoPoedim/frontend")
 
 	s.GET("/DishDay", handlers.DishDay)

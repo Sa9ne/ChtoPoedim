@@ -18,10 +18,12 @@ function updateLanguageButton() {
 async function LoadTranslations(lang) {
     try {
         const response = await fetch(`/frontend/lang/${lang}.json`);
-        translations = await response.json();
+        const text = await response.text();
+
+        translations = JSON.parse(text);
         applyTranslations();
     } catch(err) {
-        console.error("Translations doesn't found", err)
+        console.error("Ошибка парсинга JSON перевода:", err);
     }
 }
 // Функция, которая применяет переводы ко всем элементам с атрибутом data-translate
