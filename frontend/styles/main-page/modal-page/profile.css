@@ -73,3 +73,7 @@
     border-top: 3px solid white;
     margin: 10px 0px 0px;
 }
+
+.RegisterButton {
+    cursor: pointer;
+}
