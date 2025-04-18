@@ -85,3 +85,7 @@
     box-shadow: 0 0 5px #4CAF50;
     outline: none;
 }
+
+.BackToSing {
+    cursor: pointer;
+}
