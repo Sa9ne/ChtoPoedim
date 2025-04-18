@@ -13,8 +13,8 @@
     <link rel="stylesheet" href="/frontend/styles/main-page/modal-page/register.css">
     <link rel="stylesheet" href="/frontend/styles/main-page/modal-page/languages.css">
     <link rel="stylesheet" href="/frontend/styles/main-page/modal-page/profile.css">
-		<link rel="stylesheet" href="/frontend/styles/main-page/modal-page/catalog.css">
-		<link rel="stylesheet" href="/frontend/styles/main-page/modal-page/dish-day.css">
+	<link rel="stylesheet" href="/frontend/styles/main-page/modal-page/catalog.css">
+	<link rel="stylesheet" href="/frontend/styles/main-page/modal-page/dish-day.css">
     <link rel="icon" href="/frontend/icons/favicon.ico" type="image/x-icon">
 </head>
 <body style="background-color: #0c0c0d;">
@@ -105,14 +105,18 @@
             </div>
 						
 			<!-- Модальное окно каталога -->
-			<di class="modal-catalog hidden" id="catalog-form">
+			<div class="modal-catalog hidden" id="catalog-form">
 				<a data-translate="SmartSelection" class="SmartSelection">Smart selection</a>
 				<a data-translate="CatalogMenu" class="CatalogMenu">Catalog menu</a>
 				<a data-translate="DayDish" class="DayDish" onclick="OpenDayDish()">Dish of the day</a>
-			</di
+            </div>
+
 			<!-- Модальное окно Блюда дня -->
 			<div class="Modal-DayDish hidden" id="Dish-day">
 				<button class="close-btn" onclick="OpenDayDish()">&times;</button>
+                <h2 align="center" class="Dish-name" id="dish-name"></h2>
+                <p id="dish-description"></p>
+                <p id="dish-time"></p>
 			</div>
 
         </div>
