@@ -13,7 +13,7 @@
     "back_to_sign_in": "Back to sign in",
     "SmartSelection": "Smart selection",
     "CatalogMenu": "Catalog menu",
-    "DayDish": "<a onclick='OpenDayDish()'>Dish of the day</a>",
+    "DayDish": "Dish of the day",
     "FavoriteFood": "FavoriteFood",
     "Quit": "Quit"
 }
