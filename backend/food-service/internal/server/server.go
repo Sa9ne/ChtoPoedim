@@ -16,6 +16,8 @@ func Start() {
 
 	s.Use(cors.Default())
 
+	s.Static("/frontend", "/Users/user/important/ChtoPoedim/frontend")
+
 	s.GET("/DishDay", handlers.DishDay)
 
 	err := s.Run(":8082")
