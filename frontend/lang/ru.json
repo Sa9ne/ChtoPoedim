@@ -13,7 +13,7 @@
     "back_to_sign_in": "Назад ко входу",
     "SmartSelection": "Умный подбор",
     "CatalogMenu": "Каталог",
-    "DayDish": "<a data-translate='DayDish' onclick='OpenDayDish()'>Блюдо дня</a>",
+    "DayDish": "<a onclick='OpenDayDish()'>Блюдо дня</a>",
     "FavoriteFood": "Любимая еда",
     "Quit": "Выход"
 }

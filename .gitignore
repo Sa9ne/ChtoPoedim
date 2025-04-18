@@ -7,6 +7,7 @@
 # Go бинарники (если компилируешь рядом с исходниками)
 backend/**/auth-service
 backend/**/main-service
+backend/**/food-service
 
 # Общие каталоги сборки
 bin/
