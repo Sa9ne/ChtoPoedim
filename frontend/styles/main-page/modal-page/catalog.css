@@ -6,6 +6,7 @@
   height: 220px;
   border-radius: 8px;
   background-color: #0c0c0d;
+  z-index: 1000;
 }
 
 .SmartSelection, .CatalogMenu, .DayDish {

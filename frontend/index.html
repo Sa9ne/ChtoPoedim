@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="/frontend/styles/main-page/modal-page/profile.css">
 	<link rel="stylesheet" href="/frontend/styles/main-page/modal-page/catalog.css">
 	<link rel="stylesheet" href="/frontend/styles/main-page/modal-page/dish-day.css">
+    <link rel="stylesheet" href="/frontend/styles/main-page/main-cont/higher-bar.css">
     <link rel="icon" href="/frontend/icons/favicon.ico" type="image/x-icon">
 </head>
 <body style="background-color: #0c0c0d;">
@@ -128,18 +129,28 @@
             <p class="Letseat-label">что поедим?</p>
             <p class="Description-text">сервис по быстрому поиску блюд</p>
 			<img class="Person" src="/frontend/icons/Person.png" alt="Person">
-			<button class="Btn-finder">Подбор блюда</button>
+			<button class="Btn-finder" onclick="OpenSmartSelect()">Подбор блюда</button>
 		</div>
         
         <!-- Умный выбор -->
         <div class="Smart-Select hidden" id="Smart-Select">
-            <button onclick="BackToMain()">X</button>
+            <div class="Horz-bar-Select">
+                <p class="title-smart-food">Smart food select</p>
+                <button class="btn-back" onclick="BackToMain()">
+                    <img class="btn-back-img" src="/frontend/icons/close.png" alt="X">
+                </button>
+            </div>
             <p>Select Food</p>
         </div>
 
         <!-- Каталог еды -->
         <div class="Catalog-Food hidden" id="Food-Catalog">
-            <button onclick="BackToMain()">X</button>
+            <div class="Horz-bar-Select">
+                <p class="title-smart-food">Food catalog</p>
+                <button class="btn-back" onclick="BackToMain()">
+                    <img class="btn-back-img" src="/frontend/icons/close.png" alt="X">
+                </button>
+            </div>
             <p>Catalog</p>
         </div>
     </main>
