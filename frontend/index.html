@@ -106,7 +106,7 @@
 						
 			<!-- Модальное окно каталога -->
 			<div class="modal-catalog hidden" id="catalog-form">
-				<a data-translate="SmartSelection" class="SmartSelection">Smart selection</a>
+				<a data-translate="SmartSelection" class="SmartSelection" onclick="OpenSmartSelect()">Smart selection</a>
 				<a data-translate="CatalogMenu" class="CatalogMenu">Catalog menu</a>
 				<a data-translate="DayDish" class="DayDish" onclick="OpenDayDish()">Dish of the day</a>
             </div>
@@ -123,12 +123,18 @@
     </header>
     
     <main class="main-cont">
-		<div class="Center-Container">
+        <!-- Информация о сайте -->
+		<div class="Center-Container" id="Info-Site">
             <p class="Letseat-label">что поедим?</p>
             <p class="Description-text">сервис по быстрому поиску блюд</p>
 			<img class="Person" src="/frontend/icons/Person.png" alt="Person">
 			<button class="Btn-finder">Подбор блюда</button>
 		</div>
+        
+        <!-- Умный выбор -->
+        <div class="Smart-Select hidden" id="Smart-Select">
+            <p>Select Food</p>
+        </div>
     </main>
 
     <footer class="footer-menu">

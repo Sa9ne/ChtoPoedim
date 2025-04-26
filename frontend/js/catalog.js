@@ -9,6 +9,12 @@ function OpenDayDish() {
   DishDay.classList.toggle("hidden")
   DayDish();
 }
+// Функция открытия окна выбора блюд
+function OpenSmartSelect() {
+  InfoSite.classList.toggle("hidden")
+  CloseModal();
+  SmartSelect.classList.toggle("hidden")
+}
 // Функция загрузки перевода на русский
 let translations_dish = {};
 

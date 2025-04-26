@@ -1,3 +1,7 @@
+.hidden {
+    display: none;
+}
+
 .main-cont {
     display: flex;
     justify-content: center;
