@@ -11,6 +11,7 @@ function OpenDayDish() {
 }
 // Функция открытия окна выбора блюд
 function OpenSmartSelect() {
+  CloseModal();
   if (!SmartSelect.classList.contains("hidden")) {
     CloseMainWind(InfoSite);
     InfoSite.classList.remove("hidden");
@@ -21,6 +22,7 @@ function OpenSmartSelect() {
 }
 // Функция открытия каталога еды
 function OpenFoodCatalog() {
+  CloseModal();
   if (!FoodCatalog.classList.contains("hidden")) {
     CloseMainWind(InfoSite);
     InfoSite.classList.remove("hidden");
