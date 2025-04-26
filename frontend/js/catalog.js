@@ -12,7 +12,8 @@ function OpenDayDish() {
 // Функция открытия окна выбора блюд
 function OpenSmartSelect() {
   if (!SmartSelect.classList.contains("hidden")) {
-    ShowInfoSite();
+    CloseMainWind(InfoSite);
+    InfoSite.classList.remove("hidden");
   } else {
     CloseMainWind(SmartSelect);
     SmartSelect.classList.remove("hidden");
@@ -21,16 +22,12 @@ function OpenSmartSelect() {
 // Функция открытия каталога еды
 function OpenFoodCatalog() {
   if (!FoodCatalog.classList.contains("hidden")) {
-    ShowInfoSite();
+    CloseMainWind(InfoSite);
+    InfoSite.classList.remove("hidden");
   } else {
     CloseMainWind(FoodCatalog);
     FoodCatalog.classList.remove("hidden");
   }
-}
-// Функция показа InfoSite
-function ShowInfoSite() {
-  CloseMainWind(InfoSite);
-  InfoSite.classList.remove("hidden");
 }
 // Кнопка возвращения на основной экран
 function BackToMain() {
