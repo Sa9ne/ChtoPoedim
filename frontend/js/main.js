@@ -21,3 +21,13 @@ function CloseModal(expect = null) {
         }
     });
 }
+// Функция закрытия основных окон
+function CloseMainWind(expect = null) {
+    const wind = [InfoSite, SmartSelect, FoodCatalog];
+
+    wind.forEach(modal => {
+        if (modal !== expect) {
+            modal.classList.add("hidden");
+        }
+    });
+}

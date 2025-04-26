@@ -10,28 +10,39 @@ function OpenDayDish() {
   DayDish();
 }
 // Функция открытия окна выбора блюд
-function OpenSmartSelect() {  
-  if (!InfoSite.classList.contains("hidden")){
-    InfoSite.classList.toggle("hidden")
+function OpenSmartSelect() {
+  if (!SmartSelect.classList.contains("hidden")) {
+    ShowInfoSite();
+  } else {
+    CloseMainWind(SmartSelect);
+    SmartSelect.classList.remove("hidden");
   }
-
-  if (!FoodCatalog.classList.contains("hidden")) {
-    FoodCatalog.classList.add("hidden");
-  }
-
-  SmartSelect.classList.toggle("hidden")
 }
 // Функция открытия каталога еды
 function OpenFoodCatalog() {
-  if (!InfoSite.classList.contains("hidden")){
-    InfoSite.classList.toggle("hidden")
+  if (!FoodCatalog.classList.contains("hidden")) {
+    ShowInfoSite();
+  } else {
+    CloseMainWind(FoodCatalog);
+    FoodCatalog.classList.remove("hidden");
   }
-
+}
+// Функция показа InfoSite
+function ShowInfoSite() {
+  CloseMainWind(InfoSite);
+  InfoSite.classList.remove("hidden");
+}
+// Кнопка возвращения на основной экран
+function BackToMain() {
   if (!SmartSelect.classList.contains("hidden")) {
-    SmartSelect.classList.add("hidden");
+    SmartSelect.classList.add("hidden")
   }
 
-  FoodCatalog.classList.toggle("hidden")
+  if (!FoodCatalog.classList.contains("hidden")) {
+    FoodCatalog.classList.add("hidden")
+  }
+
+  InfoSite.classList.toggle("hidden")
 }
 // Функция загрузки перевода на русский
 let translations_dish = {};
