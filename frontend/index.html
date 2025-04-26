@@ -107,7 +107,7 @@
 			<!-- Модальное окно каталога -->
 			<div class="modal-catalog hidden" id="catalog-form">
 				<a data-translate="SmartSelection" class="SmartSelection" onclick="OpenSmartSelect()">Smart selection</a>
-				<a data-translate="CatalogMenu" class="CatalogMenu">Catalog menu</a>
+				<a data-translate="CatalogMenu" class="CatalogMenu" onclick="OpenFoodCatalog()" >Catalog menu</a>
 				<a data-translate="DayDish" class="DayDish" onclick="OpenDayDish()">Dish of the day</a>
             </div>
 
@@ -134,6 +134,11 @@
         <!-- Умный выбор -->
         <div class="Smart-Select hidden" id="Smart-Select">
             <p>Select Food</p>
+        </div>
+
+        <!-- Каталог еды -->
+        <div class="Catalog hidden" id="Food-Catalog">
+            <p>Catalog</p>
         </div>
     </main>
 

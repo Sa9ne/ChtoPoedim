@@ -10,6 +10,7 @@
     window.DishTime = document.getElementById("dish-time")
     window.InfoSite = document.getElementById("Info-Site")
     window.SmartSelect = document.getElementById("Smart-Select")
+    window.FoodCatalog = document.getElementById("Food-Catalog")
 // Функция закрытия всех модальных окон
 function CloseModal(expect = null) {
     const modals = [AuthForm, RegisterForm, OpenLang, OpenProf, Catalog, DishDay];

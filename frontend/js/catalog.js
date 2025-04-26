@@ -15,6 +15,12 @@ function OpenSmartSelect() {
   CloseModal();
   SmartSelect.classList.toggle("hidden")
 }
+// Функция открытия каталога еды
+function OpenFoodCatalog() {
+  InfoSite.classList.toggle("hidden")
+  CloseModal();
+  FoodCatalog.classList.toggle("hidden")
+}
 // Функция загрузки перевода на русский
 let translations_dish = {};
 
