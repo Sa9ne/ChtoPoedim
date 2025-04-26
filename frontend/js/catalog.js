@@ -10,15 +10,27 @@ function OpenDayDish() {
   DayDish();
 }
 // Функция открытия окна выбора блюд
-function OpenSmartSelect() {
-  InfoSite.classList.toggle("hidden")
-  CloseModal();
+function OpenSmartSelect() {  
+  if (!InfoSite.classList.contains("hidden")){
+    InfoSite.classList.toggle("hidden")
+  }
+
+  if (!FoodCatalog.classList.contains("hidden")) {
+    FoodCatalog.classList.add("hidden");
+  }
+
   SmartSelect.classList.toggle("hidden")
 }
 // Функция открытия каталога еды
 function OpenFoodCatalog() {
-  InfoSite.classList.toggle("hidden")
-  CloseModal();
+  if (!InfoSite.classList.contains("hidden")){
+    InfoSite.classList.toggle("hidden")
+  }
+
+  if (!SmartSelect.classList.contains("hidden")) {
+    SmartSelect.classList.add("hidden");
+  }
+
   FoodCatalog.classList.toggle("hidden")
 }
 // Функция загрузки перевода на русский
