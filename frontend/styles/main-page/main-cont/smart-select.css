@@ -1,0 +1,53 @@
+.Accept-ingredient {
+  display: flex;
+  flex-direction: column;
+  width: 620px;
+  background-color: #0c0c0d;
+  padding: 10px;
+  margin: 10px;
+  position: absolute;
+  left: 0px;
+  top: 120px;
+  bottom: 0;
+  border-radius: 10px;
+}
+
+.ingredient-photo {
+  border-radius: 8px;
+  background-color: #1d1e21;
+  flex-grow: 1;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.Accept-button,
+.Reject-button {
+  flex: 1;
+  padding: 10px;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.Reject-button {
+  background-color: #e74c3c;
+}
+
+.Accept-button {
+  margin-left: 5px;
+  background-color: #2ecc71;
+}
+
+.Accept-button:hover {
+  background-color: #27ae60;
+}
+
+.Reject-button:hover {
+  background-color: #c0392b;
+}
