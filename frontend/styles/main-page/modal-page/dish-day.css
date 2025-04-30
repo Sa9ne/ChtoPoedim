@@ -11,6 +11,7 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   z-index: 400;
   height: 500px;
+  border: 2px solid white;
 }
 .Dish-name {
   font-size: 50px;
