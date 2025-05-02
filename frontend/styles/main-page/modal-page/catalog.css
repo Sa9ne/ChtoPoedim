@@ -16,7 +16,6 @@
   align-items: center;
   justify-content: center;
   padding: 20px;
-  color: white;
   transition: background-color 0.3s  ease, color 0.2s ease-in-out;
   cursor: pointer;
 }

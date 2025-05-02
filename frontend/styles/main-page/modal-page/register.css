@@ -4,7 +4,6 @@
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #0c0c0d;
-    color: white;
     border-radius: 10px;
     padding: 20px;
     width: 300px;
@@ -19,14 +18,12 @@
     margin-top: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    color: white;
     font-size: 20px;
     transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 #register-button {
     background-color: #4CAF50;
-    color: white;
     font-size: 24px;
     padding: 5px;
     border: none;
@@ -45,7 +42,6 @@
     top: -5px;
     right: 15px;
     font-size: 44px;
-    color: white;
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -61,7 +57,6 @@
 }
 
 #toggle-text a {
-    color: white;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;

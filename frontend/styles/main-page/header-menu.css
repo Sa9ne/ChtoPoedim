@@ -1,7 +1,6 @@
 .mainmenu {
     background-color: #0c0c0d;
     font-size: 22px;
-    color: white;
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -48,7 +47,6 @@
     border: none;
     cursor: pointer;
     font-size: 18px;
-    color: white;
     padding: 5px 10px;
 }
 
