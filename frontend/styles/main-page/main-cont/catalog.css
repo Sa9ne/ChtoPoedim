@@ -33,3 +33,12 @@
   width: 35px;
   margin: 0px 20px 0px auto;
 }
+
+.dish-fav-img {
+  filter: brightness(0) invert(1) drop-shadow(0 0 3px white);
+}
+
+
+.dish-fav-img:hover {
+  filter: invert(22%) sepia(92%) saturate(7494%) hue-rotate(0deg) brightness(97%) contrast(107%) drop-shadow(0 0 5px red);
+}

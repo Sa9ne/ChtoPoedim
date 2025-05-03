@@ -78,3 +78,34 @@ async function DayDish() {
 		console.error("Ошибка:", error);
 	}
 }
+// Функция вывода каталога
+document.addEventListener("DOMContentLoaded", () => {
+  fetch("http://localhost:8082/DishCatalog")
+    .then(response => response.json())
+    .then(data => {
+      const container = document.getElementById("cards-dish");
+      const template = document.getElementById("Dish-template");
+
+      if (!Array.isArray(data) || data.length === 0) {
+        console.warn("Нет блюд для отображения");
+        return;
+      }
+
+      data.forEach(dish => {
+        const clone = template.content.cloneNode(true);
+
+        const img = clone.querySelector(".dish-ctl-img");
+        const name = clone.querySelector(".dish-ctl-name");
+        const favBtn = clone.querySelector(".dish-fav-btn");
+
+        img.alt = dish.name;
+        name.textContent = dish.name;
+        favBtn.setAttribute("data-id", dish.id); // для обработки "избранного"
+
+        container.appendChild(clone);
+      });
+    })
+    .catch(error => {
+      console.error("Ошибка при получении блюд:", error);
+    });
+});
