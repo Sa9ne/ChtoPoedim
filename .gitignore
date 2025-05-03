@@ -5,9 +5,9 @@
 *.swp
 
 # Go бинарники (если компилируешь рядом с исходниками)
-backend/**/auth-service
-backend/**/main-service
-backend/**/food-service
+backend/auth-service/auth-service
+backend/main-service/main-service
+backend/food-service/food-service
 
 # Общие каталоги сборки
 bin/

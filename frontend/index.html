@@ -17,6 +17,7 @@
 	<link rel="stylesheet" href="/frontend/styles/main-page/modal-page/dish-day.css">
     <link rel="stylesheet" href="/frontend/styles/main-page/main-cont/higher-bar.css">
     <link rel="stylesheet" href="/frontend/styles/main-page/main-cont/smart-select.css">
+    <link rel="stylesheet" href="/frontend/styles/main-page/main-cont/catalog.css">
     <link rel="icon" href="/frontend/icons/favicon.ico" type="image/x-icon">
 </head>
 <body style="background-color: #0c0c0d;">
@@ -152,8 +153,14 @@
 
         <!-- Шаблон карточки для каталога -->
         <template id="Dish-template">
-            <div class="Dish-card">
-
+            <div class="place-for-card">
+                <div class="Dish-card">
+                    <img class="dish-ctl-img" src="/frontend/icons/favicon.ico" alt="Dish">
+                    <p class="dish-ctl-name">Dish</p>
+                    <button class="dish-fav-btn">
+                        <img class="dish-fav-img" src="/frontend/icons/heart.png" alt="Favorite">
+                    </button>
+                </div>
             </div>
         </template>
 
@@ -165,11 +172,8 @@
                     <img class="btn-back-img" src="/frontend/icons/close.png" alt="X">
                 </button>
             </div>
-            <div class="Dish-card">
-                <img alt="Dish">
-                <p></p>
-                <button></button>
-            </div>
+            <div class="place"></div>
+            <div id="cards-dish"></div>
         </div>
     </main>
 
