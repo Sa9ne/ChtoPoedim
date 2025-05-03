@@ -154,7 +154,11 @@
         <!-- Шаблон карточки для каталога -->
         <template id="Dish-template">
             <div class="Dish-card">
-
+                <img class="dish-ctl-img" src="/frontend/icons/favicon.ico" alt="Dish">
+                <p class="dish-ctl-name">Dish</p>
+                <button class="dish-fav-btn">
+                    <img class="dish-fav-img" src="/frontend/icons/heart.png" alt="Favorite">
+                </button>
             </div>
         </template>
 
@@ -164,13 +168,6 @@
                 <p class="title-smart-food">Food catalog</p>
                 <button class="btn-back" onclick="BackToMain()">
                     <img class="btn-back-img" src="/frontend/icons/close.png" alt="X">
-                </button>
-            </div>
-            <div class="Dish-card">
-                <img class="dish-ctl-img" src="/frontend/icons/favicon.ico" alt="Dish">
-                <p class="dish-ctl-name">Dish</p>
-                <button class="dish-fav-btn">
-                    <img class="dish-fav-img" src="/frontend/icons/heart.png" alt="Favorite">
                 </button>
             </div>
         </div>
