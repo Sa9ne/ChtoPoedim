@@ -37,3 +37,7 @@
 .github-icon:hover img {
     transform: scale(1.1);
 }
+
+.github-icon-img {
+    filter: invert(1);
+}
