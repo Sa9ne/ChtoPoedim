@@ -2,6 +2,13 @@
   height: 100%;
   width: 100%;
   overflow-y: auto;
+  background-color: #0c0c0d;
+}
+
+.place-for-smart-select {
+  width: 100%;
+  height: 640px;
+  background-color: #1d1e21;
 }
 
 .Accept-ingredient {
@@ -12,7 +19,7 @@
   padding: 10px;
   margin: 10px;
   border-radius: 10px;
-  height: 90%;
+  height: 570px;
 }
 
 .ingredient-photo {
