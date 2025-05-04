@@ -35,6 +35,18 @@
   margin-top: 10px;
 }
 
+.catalog-for-smart-select {
+  width: 615px;
+  height: 570px;
+  background-color: #0c0c0d;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.smart-select-content {
+  display: flex;
+}
+
 .Accept-button,
 .Reject-button {
   flex: 1;
