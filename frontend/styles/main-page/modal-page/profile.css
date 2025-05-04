@@ -19,6 +19,7 @@
     background-color: transparent;
     border: none;
     cursor: pointer;
+    color: white;
 }
 
 .close-btn-profile:hover {
@@ -39,7 +40,7 @@
     cursor: pointer;
     border-radius: 10px;
     transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-
+    color: white;
     display: block;
     margin: 0 auto;
     text-align: center;
