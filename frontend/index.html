@@ -133,7 +133,20 @@
 			<img class="Person" src="/frontend/icons/Person.png" alt="Person">
 			<button class="Btn-finder" onclick="OpenSmartSelect()">Подбор блюда</button>
 		</div>
-        
+
+        <!-- Шаблон карточки для умного каталога -->
+        <template id="Smart-catalog">
+            <div class="place-for-smart-card">
+                <div class="smart-card">
+                    <img src="/frontend/icons/heart.png" class="img-smart-select">
+                    <p class="name-for-smart-card"></p>
+                    <button class="dish-fav-btn">
+                        <img class="dish-fav-img" src="/frontend/icons/heart.png" alt="Favorite">
+                    </button>
+                </div>
+            </div>
+        </template>
+
         <!-- Умный выбор -->
         <div class="Smart-Select hidden" id="Smart-Select">
             <div class="place-for-smart-select">
@@ -153,7 +166,8 @@
                         </div>
                     </div>
 
-                    <div class="catalog-for-smart-select"></div>
+                    <div class="catalog-for-smart-select">
+                        <div id="smart-card-place"></div>
                     </div>
                 </div>
             </div>

@@ -72,3 +72,29 @@
 .Reject-button:hover {
   background-color: #c0392b;
 }
+
+.place-for-smart-card {
+  background-color: #1d1e21;
+  width: 595px;
+  height: 100px;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.smart-card {
+  display: flex;
+  align-items: center;
+  height: 100px;
+}
+
+.img-smart-select {
+  background-color: #0c0c0d;
+  height: 70px;
+  width: 70px;
+  margin: 10px;
+}
+
+.name-for-smart-card {
+  font-size: 40px;
+  margin: 0px 20px 0px 10px;
+}
