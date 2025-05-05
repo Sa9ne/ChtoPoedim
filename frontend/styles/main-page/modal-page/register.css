@@ -1,18 +1,14 @@
-.hidden {
-    display: none;
-}
-
 .register-container {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #0c0c0d;
-    color: white;
     border-radius: 10px;
     padding: 20px;
     width: 300px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border: 2px solid white;
     z-index: 200;
 }
 
@@ -22,14 +18,13 @@
     margin-top: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    color: white;
     font-size: 20px;
     transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    color: white;
 }
 
 #register-button {
     background-color: #4CAF50;
-    color: white;
     font-size: 24px;
     padding: 5px;
     border: none;
@@ -37,6 +32,7 @@
     cursor: pointer;
     width: 100%;
     margin-top: 12px;
+    color: white;
 }
 
 #register-button:hover {
@@ -48,10 +44,10 @@
     top: -5px;
     right: 15px;
     font-size: 44px;
-    color: white;
     background-color: transparent;
     border: none;
     cursor: pointer;
+    color: white;
 }
 
 .close-btn:hover {
@@ -64,7 +60,6 @@
 }
 
 #toggle-text a {
-    color: white;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;
@@ -84,4 +79,8 @@
     border-color: #4CAF50;
     box-shadow: 0 0 5px #4CAF50;
     outline: none;
+}
+
+.BackToSing {
+    cursor: pointer;
 }

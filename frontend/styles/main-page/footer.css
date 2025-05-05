@@ -4,7 +4,6 @@
     align-items: center;
     background-color: #0c0c0d;
     height: 80px;
-    color: white;
     font-size: 28px;
 }
 
@@ -37,4 +36,8 @@
 
 .github-icon:hover img {
     transform: scale(1.1);
+}
+
+.github-icon-img {
+    filter: invert(1);
 }

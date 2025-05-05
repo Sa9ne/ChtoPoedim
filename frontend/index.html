@@ -7,18 +7,23 @@
     
     <link rel="stylesheet" href="/frontend/styles/reset.css">
     <link rel="stylesheet" href="/frontend/styles/main-page/header-menu.css">
-    <link rel="stylesheet" href="/frontend/styles/main-page/main-content.css">
+    <link rel="stylesheet" href="/frontend/styles/main-page/main-cont/main-content.css">
     <link rel="stylesheet" href="/frontend/styles/main-page/footer.css">
     <link rel="stylesheet" href="/frontend/styles/main-page/modal-page/log-in.css">
     <link rel="stylesheet" href="/frontend/styles/main-page/modal-page/register.css">
     <link rel="stylesheet" href="/frontend/styles/main-page/modal-page/languages.css">
     <link rel="stylesheet" href="/frontend/styles/main-page/modal-page/profile.css">
+  	<link rel="stylesheet" href="/frontend/styles/main-page/modal-page/catalog.css">
+  	<link rel="stylesheet" href="/frontend/styles/main-page/modal-page/dish-day.css">
+    <link rel="stylesheet" href="/frontend/styles/main-page/main-cont/higher-bar.css">
+    <link rel="stylesheet" href="/frontend/styles/main-page/main-cont/smart-select.css">
+    <link rel="stylesheet" href="/frontend/styles/main-page/main-cont/catalog.css">
     <link rel="icon" href="/frontend/icons/favicon.ico" type="image/x-icon">
 </head>
-<body>
+<body style="background-color: #0c0c0d;">
 
     <header class="mainmenu">
-        <h1 class="slogan">Что поедим?</h1>
+        <h1 data-translate="slogan" class="slogan">What are we eating?</h1>
 
         <div class="search-auth-container">
             <div class="search-container">
@@ -37,6 +42,12 @@
                     <img src="/frontend/icons/user.png" alt="Ava" class="User-icon">
                 </button>
             </div>
+
+			<div class="Catalog" onclick="OpenCatalog()">
+				<button class="Catalog-btn">
+					<img src="frontend/icons/menu.png" alt="Catalog" class="Catalog-img">
+				</button>
+			</div>
 
             <!-- Модальное окно языков -->
             <div class="lang-modal hidden" id="lang-modal">
@@ -58,7 +69,7 @@
                 </form>
                 <div class="separator">
                     <p id="toggle-text" data-translate="no_account">
-                        No account? <a href="#" data-translate="register_link" onclick="toggleRegisterForm()">Register</a>
+                        No account? <a data-translate="register_link" class="RegisterButton" onclick="toggleRegisterForm()">Register</a>
                     </p>
                 </div>
             </div>
@@ -76,7 +87,7 @@
                 </form>
                 <div class="separator">
                     <p id="toggle-text">
-                        <a href="#" data-translate="back_to_sign_in" onclick="toggleProfileForm()">Back to sign in</a>
+                        <a class="BackToSing" data-translate="back_to_sign_in" onclick="toggleLogInForm()">Back to sign in</a>
                     </p>
                 </div>
             </div>
@@ -89,17 +100,103 @@
                 <h2 class="Nicknametext" id="profile-title" for="nickname" id="profile-title"></h2>
                 <form>
                     <div class="form-group">
-                        <button class="FavoriteFoodButton" for="favorite-food">Favorite Food</button>
+                        <button data-translate="FavoriteFood" class="FavoriteFoodButton" for="favorite-food">Favorite Food</button>
                         <hr class="HrForPlace">
-                        <a class="LeaveText" type="button" id="quit-button" onclick="quitAccount()">Quit</a>
+                        <a data-translate="Quit" class="LeaveText" type="button" id="quit-button" onclick="quitAccount()">Quit</a>
                     </div>
                 </form>
             </div>
+            
+			<!-- Модальное окно каталога -->
+			<div class="modal-catalog hidden" id="catalog-form">
+				<a data-translate="SmartSelection" class="SmartSelection" onclick="OpenSmartSelect()">Smart selection</a>
+				<a data-translate="CatalogMenu" class="CatalogMenu" onclick="OpenFoodCatalog()" >Catalog menu</a>
+				<a data-translate="DayDish" class="DayDish" onclick="OpenDayDish()">Dish of the day</a>
+			</div>
+
+			<!-- Модальное окно Блюда дня -->
+			<div class="Modal-DayDish hidden" id="Dish-day">
+				<button class="close-btn" onclick="OpenDayDish()">&times;</button>
+				<h2 align="center" class="Dish-name" id="dish-name"></h2>
+				<p id="dish-description"></p>
+				<p id="dish-time"></p>
+			</div>
         </div>
     </header>
     
-    <main class="main-cont" id="search-results">
-        <p>Здесь будет контент</p>
+    <main class="main-cont">
+        <!-- Информация о сайте -->
+		<div class="Center-Container" id="Info-Site">
+			<p class="Letseat-label">что поедим?</p>
+			<p class="Description-text">сервис по быстрому поиску блюд</p>
+			<img class="Person" src="/frontend/icons/Person.png" alt="Person">
+			<button class="Btn-finder" onclick="OpenSmartSelect()">Подбор блюда</button>
+		</div>
+
+        <!-- Шаблон карточки для умного каталога -->
+        <template id="Smart-catalog">
+            <div class="place-for-smart-card">
+                <div class="smart-card">
+                    <img src="/frontend/icons/heart.png" class="img-smart-select">
+                    <p class="name-for-smart-card"></p>
+                    <button class="dish-fav-btn">
+                        <img class="dish-fav-img" src="/frontend/icons/heart.png" alt="Favorite">
+                    </button>
+                </div>
+            </div>
+        </template>
+
+        <!-- Умный выбор -->
+        <div class="Smart-Select hidden" id="Smart-Select">
+            <div class="place-for-smart-select">
+                <div class="Horz-bar-Select">
+                    <p class="title-smart-food">Smart food select</p>
+                    <button class="btn-back" onclick="BackToMain()">
+                        <img class="btn-back-img" src="/frontend/icons/close.png" alt="X">
+                    </button>
+                </div>
+
+                <div class="smart-select-content">
+                    <div class="Accept-ingredient">
+                        <img class="ingredient-photo" alt="Ingredient" src="/frontend/icons/vegan.png">
+                        <div class="button-group">
+                            <button class="Reject-button">Reject</button>
+                            <button class="Accept-button">Accept</button>
+							<button class="Repeat-button" style="display: none;">Repeat</button>
+                        </div>
+                    </div>
+
+                    <div class="catalog-for-smart-select">
+                        <div id="smart-card-place"></div>
+                    </div>
+                </div>
+			</div>	
+        </div>
+
+        <!-- Шаблон карточки для каталога -->
+        <template id="Dish-template">
+            <div class="place-for-card">
+                <div class="Dish-card">
+                    <img class="dish-ctl-img" alt="Dish">
+                    <p class="dish-ctl-name">Dish</p>
+                    <button class="dish-fav-btn">
+                        <img class="dish-fav-img" src="/frontend/icons/heart.png" alt="Favorite">
+                    </button>
+                </div>
+            </div>
+        </template>
+
+        <!-- Каталог еды -->
+        <div class="Catalog-Food hidden" id="Food-Catalog">
+            <div class="Horz-bar-Select">
+                <p class="title-smart-food">Food catalog</p>
+                <button class="btn-back" onclick="BackToMain()">
+                    <img class="btn-back-img" src="/frontend/icons/close.png" alt="X">
+                </button>
+            </div>
+            <div class="place"></div>
+            <div id="cards-dish"></div>
+        </div>
     </main>
 
     <footer class="footer-menu">
@@ -109,7 +206,7 @@
 
         <div class="github">
             <a href="https://github.com/Sa9ne" target="_blank" class="github-icon">
-                <img src="https://img.icons8.com/ios-filled/50/ffffff/github.png" alt="GitHub">
+                <img src="/frontend/icons/github.png" alt="GitHub" class="github-icon-img">
             </a>
         </div>
     </footer>
@@ -117,6 +214,7 @@
     <script src="/frontend/js/main.js"></script>
     <script src="/frontend/js/auth.js"></script>
     <script src="/frontend/js/translation.js"></script>
-    <script src="/frontend/js/search.js"></script>
+  	<script src="/frontend/js/catalog.js"></script>
+	<script src="/frontend/js/smart-select.js"></script>
 </body>
 </html>

@@ -12,17 +12,6 @@ import (
 
 var DB *gorm.DB
 
-type Dishes struct {
-	ID          uint   `gorm:"PrimaryKey"`
-	Name        string `json:"name"`
-	Description string `json:"description"`
-	Img         string `json:"image"`
-	Time        int    `json:"time"`
-	Vegan       bool   `json:"vegan"`
-	Spicy       bool   `json:"spicy"`
-	Hearty      bool   `json:"hearty"`
-}
-
 func ConnectDB() {
 
 	err := godotenv.Load("/Users/user/important/ChtoPoedim/.env")
@@ -35,11 +24,10 @@ func ConnectDB() {
 		log.Fatal("Database_url not found")
 	}
 
-	DB, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
+	DB, err = gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
 		log.Fatalf("Failed connect database: %v", err)
 	}
 	fmt.Println("Successful database connect")
 
-	DB.AutoMigrate(&Dishes{})
 }

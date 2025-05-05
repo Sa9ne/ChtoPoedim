@@ -1,0 +1,57 @@
+.Catalog-Food {
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  background-color: #0c0c0d;
+}
+
+.place-for-card {
+  display: flex;
+  width: 100%;
+  height: 120px;
+  background-color: #1d1e21;
+  justify-content: center;
+}
+
+.Dish-card {
+  display: flex;
+  align-items: center;
+  position: static;
+  width: 97%;
+  height: 100px;
+  background-color: #0c0c0d;
+  border-radius: 12px;
+  margin: 5px 5px 0px 5px;
+}
+
+.dish-ctl-img {
+  height: 75px;
+  width: 75px;
+  background-color: #1d1e21;
+  margin: 0px 40px 0px 20px;
+}
+
+.dish-ctl-name {
+  display: block;
+  font-size: 38px;
+}
+
+.dish-fav-btn, .dish-fav-img {
+  cursor: pointer;
+  height: 35px;
+  width: 35px;
+  margin: 0px 20px 0px auto;
+}
+
+.dish-fav-img {
+  filter: brightness(0) invert(1) drop-shadow(0 0 3px white);
+}
+
+.dish-fav-img:hover {
+  filter: invert(22%) sepia(92%) saturate(7494%) hue-rotate(0deg) brightness(97%) contrast(107%) drop-shadow(0 0 5px red);
+}
+
+.place {
+  background-color: #1d1e21;
+  height: 10px;
+}

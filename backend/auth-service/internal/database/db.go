@@ -14,7 +14,7 @@ var DB *gorm.DB
 
 func ConnectDB() {
 
-	err := godotenv.Load("D:/important/ChtoPoedim/.env")
+	err := godotenv.Load("/Users/user/important/ChtoPoedim/.env")
 	if err != nil {
 		log.Fatal("Failed to load .env file")
 	}
@@ -26,7 +26,7 @@ func ConnectDB() {
 	}
 
 	// Database connection
-	DB, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
+	DB, err = gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
 		log.Fatalf("Failed to connect DataBase: %v", err)
 	}

@@ -1,4 +1,8 @@
 /* Убираем отступы и паддинги у всех элементов */
+.hidden {
+  display: none;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -33,4 +37,5 @@
   html {
     font-size: 16px;
     line-height: 1.5;
+    color: white;
   }
