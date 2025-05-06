@@ -20,7 +20,7 @@ func Start() {
 
 	s.GET("/DishDay", handlers.DishDay)
 	s.GET("/DishCatalog", handlers.Catalog)
-	s.GET("/SmartSelectFood", handlers.SmartSelect)
+	s.POST("/SmartSelectFood", handlers.SmartSelect)
 
 	err := s.Run(":8082")
 	if err != nil {

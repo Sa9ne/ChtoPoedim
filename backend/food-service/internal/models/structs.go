@@ -10,3 +10,8 @@ type Dishes struct {
 	Spicy       bool   `json:"spicy"`
 	Hearty      bool   `json:"hearty"`
 }
+
+type UserChoice struct {
+	Stage  string `json:"stage"`
+	Choice bool   `json:"choice"`
+}
