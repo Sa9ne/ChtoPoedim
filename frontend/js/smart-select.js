@@ -33,14 +33,42 @@ function handleChoice(choice) {
     rejectBtn.style.display = 'none';
     repeatBtn.style.display = 'inline-block';
 
-    // Отправка данных на backend
     fetch('http://localhost:8082/SmartSelectFood', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(userChoices)
     })
-    .then(res => res.ok ? console.log('Данные успешно отправлены') : console.error('Ошибка при отправке'))
-    .catch(err => console.error('Сетевая ошибка:', err));
+    .then(response => {
+      if (!response.ok) throw new Error('Ошибка при отправке');
+      return response.json(); // читаем ответ как JSON
+    })
+    .then(dishes => {
+      const container = document.getElementById('smart-card-place');
+      const template = document.getElementById('Smart-catalog');
+    
+      // Очищаем старые карточки, если они есть
+      container.innerHTML = '';
+    
+      // Проходим по массиву блюд
+      dishes.forEach(dish => {
+        const card = template.content.cloneNode(true);
+
+        // Вставляем данные
+        card.querySelector('.name-for-smart-card').textContent = dish.name;
+
+        const img = card.querySelector('.img-smart-select');
+        img.alt = dish.name;
+        // Заменим иконку, если есть картинка блюда:
+        if (dish.image) {
+          img.src = dish.image;
+        } else {
+          img.src = ''; 
+        }
+    
+        container.appendChild(card);
+      });
+    })
+    .catch(err => console.error('Сетевая ошибка:', err));    
   }
 }
 
@@ -52,6 +80,10 @@ function resetProcess() {
   acceptBtn.style.display = 'inline-block';
   rejectBtn.style.display = 'inline-block';
   repeatBtn.style.display = 'none';
+
+  // Удаляем старые карточки
+  const container = document.getElementById('smart-card-place');
+  container.innerHTML = '';
 }
 
 // Обработчики событий
