@@ -15,3 +15,11 @@ type UserChoice struct {
 	Stage  string `json:"stage"`
 	Choice bool   `json:"choice"`
 }
+
+type Users struct {
+	ID        uint     `json:"id" gorm:"primaryKey"`
+	Name      string   `json:"name"`
+	Email     string   `json:"email"`
+	Password  string   `json:"password"`
+	Favorites []Dishes `gorm:"many2many:user_favorites"`
+}
