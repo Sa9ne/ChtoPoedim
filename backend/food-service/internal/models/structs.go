@@ -23,3 +23,9 @@ type Users struct {
 	Password  string   `json:"password"`
 	Favorites []Dishes `gorm:"many2many:user_favorites"`
 }
+
+type Favorites struct {
+	ID     uint `json:"id" gorm:"primaryKey"`
+	UserID uint
+	DishID uint
+}

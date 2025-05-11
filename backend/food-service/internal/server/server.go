@@ -26,8 +26,8 @@ func Start() {
 	FavDish := s.Group("/favorites")
 
 	FavDish.GET("/", handlers.GetFavorites)
-	FavDish.POST("/:DishName", handlers.AddFavorites)
-	FavDish.DELETE("/:DishName", handlers.DeleteFavorites)
+	FavDish.POST("/:DishId", handlers.AddFavorites)
+	FavDish.DELETE("/:DishId", handlers.DeleteFavorites)
 
 	err := s.Run(":8082")
 	if err != nil {

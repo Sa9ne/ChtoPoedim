@@ -2,6 +2,7 @@ package database
 
 import (
 	"fmt"
+	"food-service/internal/models"
 	"log"
 	"os"
 
@@ -30,4 +31,5 @@ func ConnectDB() {
 	}
 	fmt.Println("Successful database connect")
 
+	DB.AutoMigrate(&models.Favorites{})
 }
