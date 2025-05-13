@@ -41,7 +41,7 @@ func AddFavorites(ctx *gin.Context) {
 
 	// Проверка на тот случай, если уже добавлен
 	var existing models.Favorites
-	err = database.DB.Where("UserID = ? AND DishID = ?", User.ID, dish.ID).First(&existing).Error
+	err = database.DB.Where("user_id = ? AND dish_id = ?", User.ID, dish.ID).First(&existing).Error
 	if err == nil {
 		ctx.JSON(http.StatusConflict, gin.H{"error": "Already added"})
 		return

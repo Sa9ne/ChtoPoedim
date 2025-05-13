@@ -3,6 +3,7 @@ package server
 import (
 	"food-service/internal/database"
 	"food-service/internal/handlers"
+	"food-service/internal/middleware"
 	"log"
 
 	"github.com/gin-contrib/cors"
@@ -24,6 +25,7 @@ func Start() {
 
 	// Избранные блюда пользователя
 	FavDish := s.Group("/favorites")
+	FavDish.Use(middleware.RequireAuth)
 
 	FavDish.GET("/", handlers.GetFavorites)
 	FavDish.POST("/:DishId", handlers.AddFavorites)
